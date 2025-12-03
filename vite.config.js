@@ -1,7 +1,6 @@
 import shopify from 'vite-plugin-shopify'
 import cleanViteShopifyAssets from './scripts/cleanViteShopifyAssets.js'
 import loadViteEnv from './scripts/loadViteEnv.js'
-// import moveViteManifestToRoot from './scripts/moveViteManifestToRoot.js'
 
 const ENV = loadViteEnv()
 
@@ -16,14 +15,9 @@ export default {
       snippetFile: ENV.VITE_SNIPPET_FILE,
       themeRoot: ENV.VITE_THEME_ROOT,
       entrypointsDir: ENV.VITE_ENTRYPOINTS_DIR,
-      // additionalEntrypoints: ENV.VITE_ADDITIONAL_ENTRYPOINTS,
-      additionalEntrypoints: [
-        // 'frontend/components/component-tooltip.js',
-        // 'frontend/styles/components/component-tooltip.scss',
-      ],
+      additionalEntrypoints: ENV.VITE_ADDITIONAL_ENTRYPOINTS,
       hotReload: ENV.VITE_THEME_HOT_RELOAD,
       versionNumbers: ENV.VITE_VERSION_NUMBERS,
     }),
-    // moveViteManifestToRoot(),
   ]
 }
