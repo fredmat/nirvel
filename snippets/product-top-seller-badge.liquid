@@ -1,0 +1,97 @@
+{%- doc -%}
+  BEST SELLER badge with optional rank number.
+
+  @param {string} [class] - Custom class to define
+  @param {object} [block] - The block object
+{%- enddoc -%}
+
+{% liquid
+  assign block_settings = block.settings
+
+  if block_settings.text != blank
+    assign badge_text = block_settings.text
+  else
+    assign badge_text = "blocks.top_seller_badge.bestsellers" | t
+  endif
+
+  assign plain_text = badge_text | strip_newlines | strip_html | strip
+
+  assign top_products = collections.all.products
+  assign rank = 0
+
+  if top_products and top_products.size > 0
+    for p in top_products
+      if p.id == product.id
+        assign rank = forloop.index
+        break
+      endif
+    endfor
+  endif
+
+  assign should_display_badge = false
+  if rank > 0 and rank <= block_settings.max_rank
+    assign should_display_badge = true
+  endif
+
+  assign show_number = false
+  if block_settings.show_rank_number and rank > 0 and rank <= block_settings.show_rank_number_until
+    assign show_number = true
+  endif
+
+  if block_settings.font_size contains 'heading-lg' or block_settings.font_size contains 'heading-xl'
+    assign type = 'display'
+  elsif block_settings.font_size contains 'heading'
+    assign type = 'heading'
+  else
+    assign type = 'body'
+  endif
+
+  capture text_block_classes
+    if block_settings.type_preset == 'custom'
+      echo ' custom-typography '
+      if block_settings.font_size != ''
+        echo ' custom-font-size '
+      endif
+      if block_settings.color != ''
+        echo ' custom-color '
+      endif
+    endif
+  endcapture
+%}
+
+{% if should_display_badge %}
+  <div
+    class="
+      {{ class }}
+      border-style
+      spacing-style
+      color-{{ block_settings.color_scheme }}
+      top-seller-badge-block
+      top-seller-badge-block--{{ block.id }}
+      {{ block_settings.type_preset }}
+      text-{{ block_settings.alignment }}
+      {{ text_block_classes }}
+    "
+    style="
+      width: {{ block_settings.width }};
+      {% render 'typography-style', settings: block_settings %}
+      {% render 'spacing-padding', settings: block_settings %}
+      {% render 'border-override', settings: block_settings %}
+    "
+    {{ block.shopify_attributes }}
+  >
+    {% if plain_text != blank %}
+      {% if show_number %}
+        #{{ rank }} {{ badge_text }}
+      {% else %}
+        {{ badge_text }}
+      {% endif %}
+    {% endif %}
+  </div>
+{% endif %}
+
+{% stylesheet %}
+.top-seller-badge-block {
+  display: block;
+}
+{% endstylesheet %}

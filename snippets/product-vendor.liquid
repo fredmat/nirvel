@@ -1,0 +1,74 @@
+{%- doc -%}
+  Renders the product vendor with optional link.
+
+  @param {string} [class] - Custom class to define
+  @param {object} [block] - The block object
+{%- enddoc -%}
+
+{% liquid
+  assign block_settings = block.settings
+
+  assign vendor = product.vendor
+  assign vendor_link = vendor | url_for_vendor
+
+  assign element = 'div'
+  if block_settings.enable_vendor_link
+    assign element = 'a'
+  endif
+
+  if block_settings.font_size contains 'heading-lg' or block_settings.font_size contains 'heading-xl'
+    assign type = 'display'
+  elsif block_settings.font_size contains 'heading'
+    assign type = 'heading'
+  else
+    assign type = 'body'
+  endif
+
+  capture block_classes
+    if block_settings.type_preset == 'custom'
+      echo ' custom-typography '
+      if block_settings.font_size != ''
+        echo ' custom-font-size '
+      endif
+      if block_settings.color != ''
+        echo ' custom-color '
+      endif
+    endif
+  endcapture
+%}
+
+{% capture attributes %}
+  {% if block_settings.enable_vendor_link %}
+    href="{{ vendor_link }}"
+  {% endif %}
+  class="
+    {{ class }}
+    {{ block_classes }}
+    border-style
+    spacing-style
+    color-{{ block_settings.color_scheme }}
+    product-vendor-block
+    product-vendor-block--{{ block.id }}
+    {{ block_settings.type_preset }}
+    text-{{ block_settings.alignment }}
+  "
+  style="
+    width: {{ block_settings.width }};
+    {% render 'typography-style', settings: block_settings %}
+    {% render 'spacing-padding', settings: block_settings %}
+    {% render 'border-override', settings: block_settings %}
+  "
+  {{ block.shopify_attributes }}
+{% endcapture %}
+
+{% if vendor != blank %}
+  <{{ element }} {{ attributes }}>
+    {{- vendor -}}
+  </{{ element }}>
+{% endif %}
+
+{% stylesheet %}
+.product-vendor-block {
+  display: block;
+}
+{% endstylesheet %}

@@ -1,0 +1,169 @@
+{% javascript %}
+  document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('variant:update', (e) => {
+      const variant = e.detail?.resource;
+      const sku = variant?.sku?.trim() || '';
+
+      document.querySelectorAll('[data-product-meta-list]').forEach((block) => {
+        const skuElement = block.querySelector('[data-meta="sku"]');
+        const skuWrapper = block.querySelector('[data-meta-wrapper="sku"]');
+
+        if (!skuElement || !skuWrapper) return;
+
+        skuElement.textContent = sku;
+        skuWrapper.classList.toggle('hidden', sku === '');
+      });
+    });
+  });
+{% endjavascript %}
+
+{%- assign block_settings = block.settings -%}
+{%- assign block_id = block.id | replace: "_", "" | downcase -%}
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign meta_full = block_settings.meta_full -%}
+
+{%- if meta_full and meta_full != 'none' -%}
+  {%- assign value = '' -%}
+  {%- assign label = '' -%}
+
+  {%- case meta_full -%}
+    {%- when 'product_name' -%}
+      {%- assign value = product.title -%}
+      {%- assign label = 'blocks.product_meta_list.product_name' | t -%}
+
+    {%- when 'sku' -%}
+      {%- assign value = product.selected_or_first_available_variant.sku -%}
+      {%- assign label = 'blocks.product_meta_list.sku' | t -%}
+
+    {%- when 'vendor' -%}
+      {%- assign value = product.vendor -%}
+      {%- assign label = 'blocks.product_meta_list.vendor' | t -%}
+
+    {%- else -%}
+      {%- assign parts = meta_full | split: '.' -%}
+      {%- assign meta_type = parts[0] -%}
+      {%- assign meta_key = parts[1] -%}
+      {%- assign metafield_value = product.metafields[meta_type][meta_key] -%}
+
+      {%- if metafield_value and metafield_value.value -%}
+        {%- assign meta_key_snake = meta_key | replace: "-", "_" -%}
+        {%- assign translation_key = "blocks.product_meta_list." | append: meta_key_snake -%}
+        {%- assign label = translation_key | t -%}
+
+        {%- if label contains translation_key -%}
+          {%- assign label = meta_key | replace: "_", " " | replace: "-", " " | capitalize -%}
+        {%- endif -%}
+
+        {%- assign value = metafield_value.value -%}
+      {%- endif -%}
+  {%- endcase -%}
+
+  {%- if value != blank or meta_full == 'sku' -%}
+    <div
+      id="ProductMetaListItem-{{ block_id }}"
+      class="
+        product-meta__item
+        {% if value == blank and meta_full == 'sku' %}
+          hidden
+        {% endif %}
+      "
+      data-meta-wrapper="{{ meta_full | replace: ".", "-" | downcase }}"
+    >
+      {%- if block_settings.text_label != blank -%}
+        {%- assign label = block_settings.text_label -%}
+      {%- endif -%}
+      <dt>{{ label }}</dt>
+      <dd
+        data-meta="{{ meta_full | replace: ".", "-" | downcase }}"
+      >
+      {% if meta_full == 'sku' %}
+        {{- current_variant.sku -}}
+      {% else %}
+        <ul class="list-unstyled">
+          {%- if value -%}
+            {%- for element in value -%}
+              <li>
+                {{- element.label | default: element.value | default: element -}}
+              </li>
+            {%- endfor -%}
+          {%- endif -%}
+        </ul>
+      {% endif %}
+    </div>
+  {%- endif -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:names.product_meta",
+  "tag": null,
+  "settings": [
+    {
+      "type": "select",
+      "id": "meta_full",
+      "label": "t:settings.meta",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.none"
+        },
+        {
+          "value": "product_name",
+          "label": "t:options.product_name"
+        },
+        {
+          "value": "sku",
+          "label": "t:options.sku"
+        },
+        {
+          "value": "shopify.bulb-type",
+          "label": "t:options.bulb_type"
+        },
+        {
+          "value": "shopify.bulb-cap-type",
+          "label": "t:options.bulb_cap_type"
+        },
+        {
+          "value": "shopify.light-temperature",
+          "label": "t:options.light_temperature"
+        },
+        {
+          "value": "shopify.material",
+          "label": "t:options.material"
+        },
+        {
+          "value": "shopify.mounting-type",
+          "label": "t:options.mounting_type"
+        },
+        {
+          "value": "custom.rooms",
+          "label": "t:options.rooms"
+        },
+        {
+          "value": "shopify.style",
+          "label": "t:options.style"
+        },
+        {
+          "value": "shopify.tabletop-material",
+          "label": "t:options.tabletop_material"
+        },
+        {
+          "value": "vendor",
+          "label": "t:options.vendor"
+        }
+      ],
+      "default": "product_name"
+    },
+    {
+      "type": "text",
+      "id": "text_label",
+      "label": "t:settings.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.product_meta"
+    }
+  ]
+}
+{% endschema %}

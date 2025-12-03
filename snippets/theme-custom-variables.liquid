@@ -1,0 +1,43 @@
+{% style %}
+  :root {
+    /* Tooltips */
+    --tooltip-padding-block: {{ settings.tooltip_padding_block }}px;
+    --tooltip-padding-inline: {{ settings.tooltip_padding_inline }}px;
+
+    --tooltip-bg-opacity: {% if settings.tooltip_translucent_background %}0.9{% else %}1{% endif %};
+
+    --tooltip-border-width: {% if settings.tooltip_border == 'solid' %}1px{% else %}0px{% endif %};
+
+    --tooltip-border-opacity: 0.2;
+    --tooltip-arrow-border-opacity: 0.85;
+
+    --tooltip-border-radius: {{ settings.tooltip_border_radius }}px;
+
+    --tooltip-shadow: var(--color-shadow);
+    --tooltip-shadow-rgb: var(--color-shadow-rgb);
+    --tooltip-shadow-opacity: {{ settings.tooltip_shadow_opacity }}%;
+
+    --tooltip-font-family: var(--font-body--family);
+    --tooltip-font-style: var(--font-body--style);
+    --tooltip-font-size: {{ settings.tooltip_font_size }};
+    --tooltip-font-weight: var(--font-{{ settings.tooltip_font_weight }}--weight);
+    --tooltip-line-height: var(--line-height--body-{{ settings.tooltip_line_height }});
+    --tooltip-letter-spacing: var(--letter-spacing--body-{{ settings.tooltip_letter_spacing }});
+  }
+
+  {%- for scheme in settings.color_schemes -%}
+    .color-{{ scheme.id }} {
+      --tooltip-bg-color: rgb({{ scheme.settings.background.rgba }});
+      --tooltip-bg-color-rgb: {{ scheme.settings.background.rgb }};
+
+      --tooltip-text-color: rgb({{ scheme.settings.foreground.rgba }});
+      --tooltip-text-color-rgb: {{ scheme.settings.foreground.rgb }};
+
+      --tooltip-border-color: rgb({{ scheme.settings.border.rgba }});
+      --tooltip-border-color-rgb: {{ scheme.settings.border.rgb }};
+
+      --tooltip-shadow-rgb: {{ scheme.settings.shadow.rgb }};
+      --tooltip-shadow: 0 4px 14px -2px rgb(var(--tooltip-shadow-rgb) / var(--tooltip-shadow-opacity));
+    }
+  {%- endfor -%}
+{% endstyle %}
