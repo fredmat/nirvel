@@ -1,6 +1,7 @@
 import shopify from 'vite-plugin-shopify'
 import cleanViteShopifyAssets from './scripts/cleanViteShopifyAssets.js'
 import loadViteEnv from './scripts/loadViteEnv.js'
+// import moveViteManifestToRoot from './scripts/moveViteManifestToRoot.js'
 
 const ENV = loadViteEnv()
 
@@ -22,6 +23,7 @@ export default {
       ],
       hotReload: ENV.VITE_THEME_HOT_RELOAD,
       versionNumbers: ENV.VITE_VERSION_NUMBERS,
-    })
+    }),
+    // moveViteManifestToRoot(),
   ]
 }

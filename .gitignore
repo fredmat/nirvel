@@ -7,9 +7,9 @@
 
 node_modules/
 
-/snippets/vite.liquid
-/snippets/vite-client.liquid
-/snippets/vite-tag.liquid
+# /snippets/vite.liquid
+# /snippets/vite-client.liquid
+# /snippets/vite-tag.liquid
 
 .env
 .env.*
