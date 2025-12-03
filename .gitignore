@@ -1,5 +1,6 @@
 .shopify/
 .vite/
+.cache/
 .cursor/
 .idea/
 .vscode/

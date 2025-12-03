@@ -1,12 +1,12 @@
-# Horizon
+# Nirvel
 
 [Getting started](#getting-started) |
-[Staying up to date with Horizon changes](#staying-up-to-date-with-horizon-changes) |
+[Staying up to date with Nirvel changes](#staying-up-to-date-with-horizon-changes) |
 [Developer tools](#developer-tools) |
 [Contributing](#contributing) |
 [License](#license)
 
-Horizon is the flagship of a new generation of first party Shopify themes. It incorporates the latest Liquid Storefronts features, including [theme blocks](https://shopify.dev/docs/storefronts/themes/architecture/blocks/theme-blocks/quick-start?framework=liquid).
+Nirvel is the flagship of a new generation of first party Shopify themes. It incorporates the latest Liquid Storefronts features, including [theme blocks](https://shopify.dev/docs/storefronts/themes/architecture/blocks/theme-blocks/quick-start?framework=liquid).
 
 - **Web-native in its purest form:** Themes run on the [evergreen web](https://www.w3.org/2001/tag/doc/evergreen-web/). We leverage the latest web browsers to their fullest, while maintaining support for the older ones through progressive enhancement—not polyfills.
 - **Lean, fast, and reliable:** Functionality and design defaults to “no” until it meets this requirement. Code ships on quality. Themes must be built with purpose. They shouldn’t support each and every feature in Shopify.
