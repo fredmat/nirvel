@@ -1,0 +1,87 @@
+.tippy-box[data-animation=fade][data-state=hidden] {
+  opacity: 0;
+}
+
+[data-tippy-root] {
+  max-width: calc(100vw - 10px);
+}
+
+.tippy-box {
+  position: relative;
+  background-color: rgb(var(--tooltip-bg-color-rgb)/var(--tooltip-bg-opacity));
+  background-clip: padding-box;
+  border: 0;
+  border-radius: var(--tooltip-border-radius);
+  box-shadow: var(--tooltip-shadow);
+  color: rgb(var(--tooltip-text-color-rgb)/0.9);
+  font-size: var(--tooltip-font-size);
+  font-weight: var(--tooltip-font-weight);
+  line-height: var(--tooltip-line-height);
+  letter-spacing: var(--tooltip-letter-spacing);
+  white-space: normal;
+  outline: 0;
+  transition-property: transform, visibility, opacity;
+}
+.tippy-box[data-inertia][data-state=visible] {
+  transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
+}
+.tippy-box[data-placement^=top] > .tippy-svg-arrow {
+  bottom: 0;
+}
+.tippy-box[data-placement^=top] > .tippy-svg-arrow:after,
+.tippy-box[data-placement^=top] > .tippy-svg-arrow > svg {
+  top: 16px;
+  transform: rotate(180deg);
+}
+.tippy-box[data-placement^=bottom] > .tippy-svg-arrow {
+  top: 0;
+}
+.tippy-box[data-placement^=bottom] > .tippy-svg-arrow > svg {
+  bottom: 16px;
+}
+.tippy-box[data-placement^=left] > .tippy-svg-arrow {
+  right: 0;
+}
+.tippy-box[data-placement^=left] > .tippy-svg-arrow:after,
+.tippy-box[data-placement^=left] > .tippy-svg-arrow > svg {
+  transform: rotate(90deg);
+  top: calc(50% - 3px);
+  left: 11px;
+}
+.tippy-box[data-placement^=right] > .tippy-svg-arrow {
+  left: 0;
+}
+.tippy-box[data-placement^=right] > .tippy-svg-arrow:after,
+.tippy-box[data-placement^=right] > .tippy-svg-arrow > svg {
+  transform: rotate(-90deg);
+  top: calc(50% - 3px);
+  right: 11px;
+}
+.tippy-box--with-border {
+  border: var(--tooltip-border-width) solid rgb(var(--tooltip-border-color-rgb)/var(--tooltip-border-opacity));
+}
+.tippy-box--translucent {
+  background-color: rgb(var(--tooltip-bg-color-rgb)/var(--tooltip-bg-opacity));
+}
+.tippy-box > .tippy-svg-arrow > svg:first-child {
+  fill: rgb(var(--tooltip-border-color-rgb)/var(--tooltip-arrow-border-opacity));
+}
+.tippy-box > .tippy-svg-arrow > svg:last-child {
+  fill: rgb(var(--tooltip-bg-color-rgb)/var(--tooltip-bg-opacity));
+}
+
+.tippy-content {
+  position: relative;
+  padding: var(--tooltip-padding-block) var(--tooltip-padding-inline);
+  z-index: 1;
+}
+
+.tippy-svg-arrow {
+  width: 16px;
+  height: 16px;
+  fill: rgb(var(--tooltip-bg-color-rgb)/var(--tooltip-bg-opacity));
+  text-align: initial;
+}
+.tippy-svg-arrow, .tippy-svg-arrow > svg {
+  position: absolute;
+}
