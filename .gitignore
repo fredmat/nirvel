@@ -5,6 +5,7 @@
 .idea/
 .vscode/
 
+/config/
 node_modules/
 
 .env
