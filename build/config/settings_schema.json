@@ -2205,7 +2205,7 @@
         "step": 1,
         "unit": "px",
         "label": "t:settings.width",
-        "default": 30
+        "default": 44
       },
       {
         "type": "range",
@@ -2215,7 +2215,7 @@
         "step": 1,
         "unit": "px",
         "label": "t:settings.height",
-        "default": 30
+        "default": 44
       },
       {
         "type": "range",
