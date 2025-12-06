@@ -73,7 +73,7 @@
     "product_card_carousel": false,
     "card_corner_radius": 4,
     "show_variant_image": false,
-    "variant_swatch_radius": 32,
+    "variant_swatch_radius": 44,
     "variant_button_radius": 14,
     "content_for_index": [],
     "color_schemes": {
