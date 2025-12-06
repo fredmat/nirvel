@@ -43,7 +43,7 @@
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div
   class="product-information section section--{{ content_width }} spacing-style color-{{ section.settings.color_scheme }} relative"
-  style="{% render 'spacing-style', settings: section.settings %} --gap: {{ section.settings.gap }}px;"
+  style="{% render 'spacing-padding', settings: section.settings %} --gap: {{ section.settings.gap }}px;"
 >
   {% if section.settings.desktop_media_position == 'left' and product_has_media %}
     {% assign product_href = '#ProductInformation-' | append: section.id %}
@@ -88,6 +88,13 @@
 </div>
 
 {% stylesheet %}
+  #shopify-section-{{ section.id }} .product-information.section.spacing-style {
+    padding-block-start: var(--padding-block-start);
+    padding-block-end: var(--padding-block-end);
+    padding-inline-start: var(--padding-inline-start);
+    padding-inline-end: var(--padding-inline-end);
+  }
+
   .product-information {
     gap: var(--gap) 0;
   }
@@ -118,6 +125,11 @@
 
     .product-details {
       grid-column: 2 / 3;
+    }
+
+    #shopify-section-{{ section.id }} .product-information.section.spacing-style {
+      padding-block-start: var(--padding-block-start-mobile);
+      padding-block-end: var(--padding-block-end-mobile);
     }
   }
 
@@ -375,6 +387,30 @@
     {
       "type": "range",
       "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "t:content.mobile_padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start-mobile",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end-mobile",
       "label": "t:settings.bottom",
       "min": 0,
       "max": 100,

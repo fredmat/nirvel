@@ -62,7 +62,15 @@
             {{ option_id_attribute }}
           >
             <legend>
-              {{ product_option.name | escape -}}
+              <span class=
+                "
+                  {% if variant_style == 'swatch' %}
+                    variant-option__default-label
+                  {% else %}
+                    variant-option__swatch-label
+                  {% endif %}
+                "
+              >{{ product_option.name | escape -}}</span>
               {%- if variant_style == 'swatch' -%}
                 <span class="variant-option__swatch-value">{{ product_option.selected_value }}</span>
               {%- endif %}
@@ -254,12 +262,22 @@
 
   .variant-option--buttons legend {
     padding: 0;
-    margin-block-end: var(--margin-xs);
+    margin-block-end: var(--margin-sm);
+  }
+
+  .variant-option__default-label {
+    font-size: var(--font-size--xs);
+  }
+
+  .variant-option__swatch-label,
+  .variant-option__swatch-value {
+    font-size: var(--font-size--xs);
   }
 
   .variant-option__swatch-value {
     padding-inline-start: var(--padding-xs);
-    color: rgb(var(--color-foreground-rgb) / var(--opacity-70));
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-95));
+    font-weight: var(--font-heading--weight);
   }
 
   @media (prefers-reduced-motion: no-preference) {
