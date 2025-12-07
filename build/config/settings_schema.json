@@ -1434,6 +1434,29 @@
     "name": "t:names.badges",
     "settings": [
       {
+        "type": "checkbox",
+        "id": "badge_show_savings",
+        "label": "t:settings.show_savings",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "badge_savings_display_type",
+        "label": "t:settings.savings_display_type",
+        "options": [
+          {
+            "value": "percent",
+            "label": "t:options.percent"
+          },
+          {
+            "value": "amount",
+            "label": "t:options.amount"
+          }
+        ],
+        "default": "percent",
+        "visible_if": "{{ settings.badge_show_savings }}"
+      },
+      {
         "type": "select",
         "id": "badge_position",
         "options": [

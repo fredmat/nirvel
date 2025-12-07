@@ -172,6 +172,15 @@
     }
   },
   "content": {
+    "product_badge_save_percentage": "Save {{ value }}%",
+    "product_badge_save_amount": "Save {{ value }}",
+
+
+
+
+
+
+
     "discount": "Discount",
     "account_title": "Account",
     "terms_and_policies": "Terms and Policies",

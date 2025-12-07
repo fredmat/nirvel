@@ -422,6 +422,7 @@
     "pills": "Pills"
   },
   "options": {
+    "amount": "Amount",
     "bulb_type": "Bulb type",
     "bulb_cap_type": "Bulb cap type",
     "category_metafields": "Shopify",
@@ -762,11 +763,13 @@
     "meta": "Meta",
     "metafields": "Metafields",
     "sale_price_color": "Sale price color",
+    "savings_display_type": "Savings display type",
     "secondary_background": "Secondary background",
     "secondary_text": "Secondary text",
     "show_account_link": "Show account link",
     "show_rank_number": "Show rank number",
     "show_rank_number_until": "Show rank number until",
+    "show_savings": "Show savings",
     "max_rank_display_badge": "Maximum rank to display badge",
     "text_size": "Text size",
     "translucent_background": "Translucent background",
