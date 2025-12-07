@@ -355,6 +355,45 @@
           "selected_variant_hover_text_color": "#ffffff",
           "selected_variant_hover_border_color": "#171717"
         }
+      },
+      "scheme-8": {
+        "settings": {
+          "background": "#171717",
+          "foreground_heading": "#ffffff",
+          "foreground": "#ffffff",
+          "primary": "#ffffff",
+          "primary_hover": "#ffffffb0",
+          "border": "#ffffff2b",
+          "shadow": "#000000",
+          "primary_button_background": "#fffffff2",
+          "primary_button_text": "#171717",
+          "primary_button_border": "#fffffff2",
+          "primary_button_hover_background": "#ffffff",
+          "primary_button_hover_text": "#171717",
+          "primary_button_hover_border": "#ffffff",
+          "secondary_button_background": "rgba(0,0,0,0)",
+          "secondary_button_text": "#ffffff",
+          "secondary_button_border": "#ffffffb0",
+          "secondary_button_hover_background": "#ffffff0a",
+          "secondary_button_hover_text": "#ffffffed",
+          "secondary_button_hover_border": "#ffffffb0",
+          "input_background": "#ffffff0d",
+          "input_text_color": "#ffffffed",
+          "input_border_color": "rgba(0,0,0,0)",
+          "input_hover_background": "#ffffff12",
+          "variant_background_color": "rgba(0,0,0,0)",
+          "variant_text_color": "#ffffff",
+          "variant_border_color": "#ffffff2b",
+          "variant_hover_background_color": "rgba(0,0,0,0)",
+          "variant_hover_text_color": "#ffffff",
+          "variant_hover_border_color": "#ffffffd9",
+          "selected_variant_background_color": "#ffffff",
+          "selected_variant_text_color": "#171717",
+          "selected_variant_border_color": "#ffffff",
+          "selected_variant_hover_background_color": "#ffffff",
+          "selected_variant_hover_text_color": "#171717",
+          "selected_variant_hover_border_color": "#ffffff"
+        }
       }
     }
   },
@@ -632,6 +671,45 @@
             "selected_variant_hover_background_color": "#171717",
             "selected_variant_hover_text_color": "#ffffff",
             "selected_variant_hover_border_color": "#171717"
+          }
+        },
+        "scheme-8": {
+          "settings": {
+            "background": "#171717",
+            "foreground_heading": "#ffffff",
+            "foreground": "#ffffff",
+            "primary": "#ffffff",
+            "primary_hover": "#ffffffb0",
+            "border": "#ffffff2b",
+            "shadow": "#000000",
+            "primary_button_background": "#fffffff2",
+            "primary_button_text": "#171717",
+            "primary_button_border": "#fffffff2",
+            "primary_button_hover_background": "#ffffff",
+            "primary_button_hover_text": "#171717",
+            "primary_button_hover_border": "#ffffff",
+            "secondary_button_background": "rgba(0,0,0,0)",
+            "secondary_button_text": "#ffffff",
+            "secondary_button_border": "#ffffffb0",
+            "secondary_button_hover_background": "#ffffff0a",
+            "secondary_button_hover_text": "#ffffffed",
+            "secondary_button_hover_border": "#ffffffb0",
+            "input_background": "#ffffff0d",
+            "input_text_color": "#ffffffed",
+            "input_border_color": "rgba(0,0,0,0)",
+            "input_hover_background": "#ffffff12",
+            "variant_background_color": "rgba(0,0,0,0)",
+            "variant_text_color": "#ffffff",
+            "variant_border_color": "#ffffff2b",
+            "variant_hover_background_color": "rgba(0,0,0,0)",
+            "variant_hover_text_color": "#ffffff",
+            "variant_hover_border_color": "#ffffffd9",
+            "selected_variant_background_color": "#ffffff",
+            "selected_variant_text_color": "#171717",
+            "selected_variant_border_color": "#ffffff",
+            "selected_variant_hover_background_color": "#ffffff",
+            "selected_variant_hover_text_color": "#171717",
+            "selected_variant_hover_border_color": "#ffffff"
           }
         }
       }
