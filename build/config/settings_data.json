@@ -41,6 +41,8 @@
     "page_transition_enabled": false,
     "transition_to_main_product": false,
     "card_hover_effect": "none",
+    "badge_show_savings": true,
+    "badge_savings_display_type": "amount",
     "badge_position": "top-right",
     "badge_corner_radius": 100,
     "badge_sale_color_scheme": "scheme-1",
