@@ -10,8 +10,9 @@
 
 {%- assign target_variant = product.selected_or_first_available_variant -%}
 
-<product-badge
+<product-badges
   data-product-id="{{ product.id }}"
+  data-product-url="{{ product.url }}"
   class="product-badges product-badges--{{ settings.badge_position }}"
   style="
     --badge-border-radius: {{ settings.badge_corner_radius }}px;
@@ -49,7 +50,7 @@
       {%- endif -%}
     </div>
   {%- endif -%}
-</product-badge>
+</product-badges>
 
 {% stylesheet %}
   .product-badges {
@@ -57,6 +58,7 @@
 
     position: absolute;
     z-index: var(--layer-flat);
+    display: block;
   }
 
   .product-badges--bottom-left {
@@ -93,5 +95,40 @@
   .product-badges__badge--rectangle {
     padding-block: var(--badge-rectangle-padding-block);
     padding-inline: var(--badge-rectangle-padding-inline);
+  }
+
+  .product-badges.badge-animate .product-badges__badge {
+    animation: badgeFadeIn 
+               var(--animation-speed-medium) 
+               var(--animation-timing-fade-in);
+  }
+
+  @keyframes badgeFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .product-badges.badge-fade-out .product-badges__badge {
+    animation: badgeFadeOut 
+               var(--animation-speed) 
+               var(--animation-timing-fade-out)
+               forwards;
+  }
+
+  @keyframes badgeFadeOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(4px);
+    }
   }
 {% endstylesheet %}

@@ -1,2 +1,2 @@
 import './tooltips'
-import '@/components/product-badge/product-badge'
+import '@/components/product-badges/product-badges'
