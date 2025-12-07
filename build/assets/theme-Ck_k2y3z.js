@@ -1,7 +1,11 @@
 import "./tooltips-Cys2S6oV.js";
 class ProductBadges extends HTMLElement {
   connectedCallback() {
-    this.variantPicker = this.closest("product-card, .product-card, [data-product-card]")?.querySelector("variant-picker, swatches-variant-picker-component");
+    this.variantPicker = this.closest("product-card, .product-card, [data-product-card]")?.querySelector(
+      "variant-picker, swatches-variant-picker-component"
+    ) || document.querySelector(
+      "[data-product-grid-content] variant-picker, [data-product-grid-content] swatches-variant-picker-component"
+    );
     if (!this.variantPicker) return;
     this.variantPicker.addEventListener("variant:update", this.onVariantUpdate);
   }
