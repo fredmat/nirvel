@@ -9,6 +9,7 @@
 {%- enddoc -%}
 {%- liquid
   assign recently_viewed_title_text = 'content.recently_viewed_products' | t
+  assign image_hover = settings.search_modal_show_second_image_on_hover
 -%}
 <div
   id="predictive-search-products"
@@ -59,8 +60,8 @@
                 resource_type: 'product',
                 resource: product,
                 image_width: 500,
-                image_hover: true,
-                image_aspect_ratio: '4 / 5'
+                image_hover: image_hover,
+                image_aspect_ratio: '1 / 1'
               %}
             </li>
           {% endfor %}
@@ -74,8 +75,8 @@
                 resource_type: 'product',
                 resource: product,
                 image_width: 500,
-                image_hover: true,
-                image_aspect_ratio: '4 / 5'
+                image_hover: image_hover,
+                image_aspect_ratio: '1 / 1'
               %}
             </li>
           {% endfor %}
@@ -103,8 +104,8 @@
             resource_type: 'product',
             resource: product,
             image_width: 500,
-            image_hover: true,
-            image_aspect_ratio: '4 / 5'
+            image_hover: image_hover,
+            image_aspect_ratio: '1 / 1'
           %}
         </li>
       {% endfor %}

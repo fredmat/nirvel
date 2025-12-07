@@ -2194,6 +2194,18 @@
         "default": 0
       },
       {
+        "type": "checkbox",
+        "id": "search_modal_show_second_image_on_hover",
+        "label": "t:settings.show_second_image_on_hover",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "search_modal_show_sale_price_first",
+        "label": "t:settings.show_sale_price_first",
+        "default": true
+      },
+      {
         "type": "select",
         "id": "card_title_case",
         "label": "t:settings.product_and_card_title_case",
