@@ -56,6 +56,7 @@
     --badge-font-weight: var(--font-{{ badge_font_family }}--weight);
     --badge-text-transform: {{ badge_text_transform }};
   "
+  {{ block.shopify_attributes }}
 >
   {%- if target_variant.available == false or target_variant.compare_at_price > target_variant.price -%}
 
