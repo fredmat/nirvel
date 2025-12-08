@@ -1487,6 +1487,12 @@
         "default": 40
       },
       {
+        "type": "checkbox",
+        "id": "badge_enable_animation",
+        "label": "t:settings.badge_enable_animation",
+        "default": false
+      },
+      {
         "type": "header",
         "content": "t:settings.colors"
       },
@@ -1494,7 +1500,7 @@
         "type": "color_scheme",
         "id": "badge_sale_color_scheme",
         "label": "t:settings.badge_sale_color_scheme",
-        "default": "scheme-4"
+        "default": "scheme-8"
       },
       {
         "type": "color_scheme",
@@ -1528,7 +1534,7 @@
             "label": "t:options.accent"
           }
         ],
-        "default": "body"
+        "default": "subheading"
       },
       {
         "type": "select",

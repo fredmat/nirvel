@@ -752,6 +752,7 @@
   },
   "settings": {
     "background_opacity": "Background opacity",
+    "badge_enable_animation": "Enable badge animation",
     "button_text": "Button text",
     "cart_drawer_continue_link": "Show \"Continue shopping\" link",
     "cart_drawer_hide_remove_button": "Hide \"Remove\" button in cart drawer",

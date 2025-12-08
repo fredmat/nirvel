@@ -7,12 +7,7 @@
 {%- enddoc -%}
 
 {%- liquid
-  assign badge_context = context | default: 'card'
-
-  assign badge_width = 'fit-content'
-  if badge_context == 'block' and settings.badge_width != blank
-    assign badge_width = settings.badge_width
-  endif
+  assign target_variant = product.selected_or_first_available_variant
 
   assign inherit_raw = settings.inherit_global_badge_settings
   if inherit_raw == false
@@ -31,8 +26,14 @@
   assign badge_sold_out_color_scheme = raw_settings.badge_sold_out_color_scheme | default: 'scheme-5'
   assign badge_font_family = raw_settings.badge_font_family | default: 'body'
   assign badge_text_transform = raw_settings.badge_text_transform | default: 'none'
+  assign badge_enable_animation = raw_settings.badge_enable_animation | default: false, allow_false: true
 
-  assign target_variant = product.selected_or_first_available_variant
+  assign badge_context = context | default: 'card'
+  assign badge_width = 'fit-content'
+
+  if badge_context == 'block' and settings.badge_width != blank
+    assign badge_width = settings.badge_width
+  endif
 -%}
 
 <product-badges
@@ -44,6 +45,9 @@
     product-badges--context-{{ badge_context }}
     {% if badge_context != 'block' %}
       product-badges--{{ badge_position }}
+    {% endif %}
+    {% if badge_enable_animation %}
+      product-badges--animations-enabled
     {% endif %}
   "
   style="
@@ -97,6 +101,11 @@
   .product-badges {
     --badge-inset: max(var(--padding-xs), calc((var(--border-radius) + var(--padding-xs)) * (1 - cos(45deg))));
     display: block;
+  }
+
+  .product-badges--context-inline {
+    position: static;
+    display: inline-block;
   }
 
   .product-badges--context-block {
@@ -159,6 +168,10 @@
 
   .product-badges.badge-animate .product-badges__badge {
     animation: badgeFadeIn var(--animation-speed-medium) var(--animation-timing-fade-in);
+  }
+
+  .product-badges:not(.product-badges--animations-enabled) .product-badges__badge {
+    animation: none !important;
   }
 
   @keyframes badgeFadeIn {

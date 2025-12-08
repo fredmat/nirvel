@@ -22,6 +22,15 @@ class ProductBadges extends HTMLElement {
     }
     const newBadge = data.html.querySelector("product-badges");
     if (!newBadge) return;
+    const animationsEnabled = this.classList.contains("product-badges--animations-enabled");
+    if (!animationsEnabled) {
+      if (window.Theme?.morph) {
+        window.Theme.morph(this, newBadge, { childrenOnly: true });
+      } else {
+        this.innerHTML = newBadge.innerHTML;
+      }
+      return;
+    }
     this.classList.remove("badge-animate");
     this.classList.add("badge-fade-out");
     const onFadeOutEnd = () => {
@@ -32,7 +41,6 @@ class ProductBadges extends HTMLElement {
       } else {
         this.innerHTML = newBadge.innerHTML;
       }
-      this.classList.remove("badge-animate");
       void this.offsetWidth;
       this.classList.add("badge-animate");
     };
