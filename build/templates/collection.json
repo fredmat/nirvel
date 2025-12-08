@@ -21,7 +21,7 @@
             "max_width": "normal",
             "alignment": "left",
             "type_preset": "custom",
-            "font": "var(--font-subheading--family)",
+            "font": "var(--font-heading--family)",
             "font_size": "2.5rem",
             "line_height": "normal",
             "letter_spacing": "normal",
@@ -114,7 +114,7 @@
             "show_swatch_label": false,
             "show_filter_label": false,
             "enable_sorting": true,
-            "enable_grid_density": false,
+            "enable_grid_density": true,
             "inherit_color_scheme": true,
             "color_scheme": "scheme-1",
             "padding-block-start": 8,
@@ -209,7 +209,6 @@
             "swatches_DUERgK": {
               "type": "swatches",
               "name": "t:names.swatches",
-              "disabled": true,
               "settings": {
                 "product_swatches_alignment": "flex-start",
                 "product_swatches_alignment_mobile": "flex-start",

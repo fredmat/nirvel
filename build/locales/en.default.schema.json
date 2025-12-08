@@ -227,6 +227,7 @@
     "media_type_info": "Features are populated from your menu links"
   },
   "names": {
+    "product_badges": "Product badges",
     "product_meta": "Product meta",
     "product_meta_list": "Product meta list",
     "product_page": "Product page",
@@ -759,6 +760,7 @@
     "enable_vendor_link": "Enable vendor link",
     "heading_case": "Heading case",
     "link_case": "Link case",
+    "inherit_global_badge_settings": "Inherit global badge settings",
     "make_element_focusable": "Make this element focusable",
     "meta": "Meta",
     "metafields": "Metafields",

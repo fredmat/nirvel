@@ -1,18 +1,144 @@
-{% render 'product-card-badges',
-  product: closest.product,
-  settings: settings
-%}
+{% if closest.product %}
+  {% render 'product-card-badges',
+    context: 'block',
+    product: closest.product,
+    settings: block.settings,
+    global_settings: settings
+  %}
+{% endif %}
 
 {% schema %}
 {
-  "name": "Product badges",
+  "name": "t:names.product_badges",
   "tag": null,
   "settings": [
-
+    {
+      "type": "select",
+      "id": "badge_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "fit-content",
+          "label": "t:options.fit_content"
+        },
+        {
+          "value": "fill",
+          "label": "t:options.fill"
+        }
+      ],
+      "default": "fit-content"
+    },
+    {
+      "type": "checkbox",
+      "id": "inherit_global_badge_settings",
+      "label": "t:settings.inherit_global_badge_settings",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "badge_show_savings",
+      "label": "t:settings.show_savings",
+      "default": false,
+      "visible_if": "{{ block.settings.inherit_global_badge_settings == false }}"
+    },
+    {
+      "type": "select",
+      "id": "badge_savings_display_type",
+      "label": "t:settings.savings_display_type",
+      "options": [
+        {
+          "value": "percent",
+          "label": "t:options.percent"
+        },
+        {
+          "value": "amount",
+          "label": "t:options.amount"
+        }
+      ],
+      "default": "percent",
+      "visible_if": "{{ block.settings.inherit_global_badge_settings == false and block.settings.badge_show_savings == true }}"
+    },
+    {
+      "type": "range",
+      "id": "badge_corner_radius",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "t:settings.badge_corner_radius",
+      "default": 40,
+      "visible_if": "{{ block.settings.inherit_global_badge_settings == false }}"
+    },
+    {
+      "type": "header",
+      "content": "t:settings.colors",
+      "visible_if": "{{ block.settings.inherit_global_badge_settings == false }}"
+    },
+    {
+      "type": "color_scheme",
+      "id": "badge_sale_color_scheme",
+      "label": "t:settings.badge_sale_color_scheme",
+      "default": "scheme-4",
+      "visible_if": "{{ block.settings.inherit_global_badge_settings == false }}"
+    },
+    {
+      "type": "color_scheme",
+      "id": "badge_sold_out_color_scheme",
+      "label": "t:settings.badge_sold_out_color_scheme",
+      "default": "scheme-5",
+      "visible_if": "{{ block.settings.inherit_global_badge_settings == false }}"
+    },
+    {
+      "type": "header",
+      "content": "t:names.typography",
+      "visible_if": "{{ block.settings.inherit_global_badge_settings == false }}"
+    },
+    {
+      "type": "select",
+      "id": "badge_font_family",
+      "label": "t:settings.font",
+      "options": [
+        {
+          "value": "body",
+          "label": "t:options.body"
+        },
+        {
+          "value": "subheading",
+          "label": "t:options.subheading"
+        },
+        {
+          "value": "heading",
+          "label": "t:options.heading"
+        },
+        {
+          "value": "accent",
+          "label": "t:options.accent"
+        }
+      ],
+      "default": "body",
+      "visible_if": "{{ block.settings.inherit_global_badge_settings == false }}"
+    },
+    {
+      "type": "select",
+      "id": "badge_text_transform",
+      "label": "t:settings.text_case",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.default"
+        },
+        {
+          "value": "uppercase",
+          "label": "t:options.uppercase"
+        }
+      ],
+      "default": "none",
+      "visible_if": "{{ block.settings.inherit_global_badge_settings == false }}"
+    }
   ],
   "presets": [
     {
-      "name": "Product badges",
+      "name": "t:names.product_badges",
       "category": "t:categories.product"
     }
   ]

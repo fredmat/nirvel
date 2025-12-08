@@ -67,6 +67,22 @@
             "padding-inline-end": 0
           },
           "blocks": {
+            "product_badges_7gCfJR": {
+              "type": "product-badges",
+              "name": "Product badges",
+              "settings": {
+                "badge_width": "fit-content",
+                "inherit_global_badge_settings": true,
+                "badge_show_savings": false,
+                "badge_savings_display_type": "percent",
+                "badge_corner_radius": 40,
+                "badge_sale_color_scheme": "",
+                "badge_sold_out_color_scheme": "",
+                "badge_font_family": "body",
+                "badge_text_transform": "none"
+              },
+              "blocks": {}
+            },
             "group_icgrde": {
               "type": "group",
               "name": "Header",
@@ -438,6 +454,7 @@
             }
           },
           "block_order": [
+            "product_badges_7gCfJR",
             "group_icgrde",
             "divider_VJhene",
             "variant_picker_R3rGDr",
