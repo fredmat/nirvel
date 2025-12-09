@@ -67,68 +67,6 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "group_DQjVrM": {
-              "type": "group",
-              "name": "t:names.group",
-              "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "center",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
-                "gap": 12,
-                "width": "fill",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "custom_height": 100,
-                "inherit_color_scheme": true,
-                "color_scheme": "",
-                "background_media": "none",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "link": "",
-                "open_in_new_tab": false,
-                "placeholder": "",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {
-                "product_badges_rtRynW": {
-                  "type": "product-badges",
-                  "name": "t:names.product_badges",
-                  "settings": {
-                    "badge_width": "fit-content",
-                    "inherit_global_badge_settings": true,
-                    "badge_show_savings": false,
-                    "badge_savings_display_type": "percent",
-                    "badge_corner_radius": 40,
-                    "badge_enable_animation": false,
-                    "badge_sale_color_scheme": "",
-                    "badge_sold_out_color_scheme": "",
-                    "badge_font_family": "subheading",
-                    "badge_text_transform": "none"
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "product_badges_rtRynW"
-              ]
-            },
             "group_icgrde": {
               "type": "group",
               "name": "Header",
@@ -195,33 +133,96 @@
                   },
                   "blocks": {}
                 },
-                "price_tVjtKg": {
-                  "type": "price",
+                "group_VLhm9G": {
+                  "type": "group",
+                  "name": "t:names.group",
                   "settings": {
-                    "show_sale_price_first": true,
-                    "show_installments": false,
-                    "show_tax_info": false,
-                    "show_tax_info_tooltip": false,
-                    "type_preset": "custom",
-                    "width": "100%",
-                    "alignment": "left",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "color": "var(--color-foreground)",
+                    "content_direction": "row",
+                    "vertical_on_mobile": false,
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
+                    "gap": 12,
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fit-content",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "custom_height": 100,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
+                    "background_media": "none",
+                    "video_position": "cover",
+                    "background_image_position": "cover",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_radius": 0,
+                    "toggle_overlay": false,
+                    "overlay_color": "#00000026",
+                    "overlay_style": "solid",
+                    "gradient_direction": "to top",
+                    "link": "",
+                    "open_in_new_tab": false,
+                    "placeholder": "",
                     "padding-block-start": 10,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
                   },
-                  "blocks": {}
+                  "blocks": {
+                    "price_4Qxdxa": {
+                      "type": "price",
+                      "settings": {
+                        "show_sale_price_first": true,
+                        "show_installments": false,
+                        "show_tax_info": false,
+                        "show_tax_info_tooltip": false,
+                        "type_preset": "custom",
+                        "width": "fit-content",
+                        "alignment": "left",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "color": "var(--color-foreground)",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "product_badges_UEB444": {
+                      "type": "product-badges",
+                      "name": "t:names.product_badges",
+                      "settings": {
+                        "badge_width": "fit-content",
+                        "inherit_global_badge_settings": false,
+                        "badge_show_savings": true,
+                        "badge_savings_display_type": "percent",
+                        "badge_corner_radius": 40,
+                        "badge_enable_animation": true,
+                        "badge_sale_color_scheme": "scheme-8",
+                        "badge_sold_out_color_scheme": "",
+                        "badge_font_family": "heading",
+                        "badge_text_transform": "none"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "price_4Qxdxa",
+                    "product_badges_UEB444"
+                  ]
                 }
               },
               "block_order": [
                 "text_xpVMaM",
-                "price_tVjtKg"
+                "group_VLhm9G"
               ]
             },
             "divider_VJhene": {
@@ -277,6 +278,7 @@
                 },
                 "accelerated-checkout": {
                   "type": "accelerated-checkout",
+                  "disabled": true,
                   "static": true,
                   "settings": {
                     "style_class": "secondary"
@@ -500,7 +502,6 @@
             }
           },
           "block_order": [
-            "group_DQjVrM",
             "group_icgrde",
             "divider_VJhene",
             "variant_picker_R3rGDr",
