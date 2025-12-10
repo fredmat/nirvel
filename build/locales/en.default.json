@@ -174,7 +174,7 @@
   "content": {
     "product_badge_save_percentage": "Save {{ value }}%",
     "product_badge_save_amount": "Save {{ value }}",
-
+    "product_savings_info_text": "You save {{ value }}",
 
 
 

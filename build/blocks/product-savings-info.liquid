@@ -1,0 +1,105 @@
+{%- doc -%}
+  Product block that displays variant savings information.
+
+  @param {object} block - The block object.
+  @param {object} closest.product - The closest product in the render tree.
+{%- enddoc -%}
+
+{%- if closest.product -%}
+  {%- liquid
+    assign product = closest.product
+    assign target_variant = product.selected_or_first_available_variant
+    assign block_settings = block.settings
+
+    assign has_savings = false
+
+    if target_variant.compare_at_price > target_variant.price
+      assign has_savings = true
+
+      assign savings_display_type = block_settings.savings_display_type | default: 'percent'
+
+      assign savings_value = target_variant.compare_at_price | minus: target_variant.price
+      assign savings_value_formatted = savings_value | money
+
+      if savings_display_type == 'percent'
+        assign savings_percent = savings_value | times: 100.0 | divided_by: target_variant.compare_at_price | round
+        assign savings_token_value = savings_percent | append: '%'
+      else
+        assign savings_token_value = savings_value_formatted
+      endif
+
+      if block_settings.text != blank
+        assign final_text = block_settings.text | replace: '%value%', savings_token_value
+      else
+        assign final_text = 'content.product_savings_info_text' | t: value: savings_token_value
+      endif
+    endif
+  -%}
+
+  {% if has_savings %}
+    <product-savings-info
+      class="product-savings-info"
+      data-product-id="{{ product.id }}"
+      data-product-url="{{ product.url }}"
+      data-variant-id="{{ target_variant.id }}"
+      data-savings-amount="{{ savings_value }}"
+      {% if savings_percent %}
+        data-savings-percent="{{ savings_percent }}"
+      {% endif %}
+      data-savings-display-type="{{ savings_display_type }}"
+      {{ block.shopify_attributes }}
+    >
+      <span class="product-savings-info__text">
+        {{- final_text -}}
+      </span>
+    </product-savings-info>
+  {% endif %}
+{%- endif -%}
+
+{% stylesheet %}
+  .product-savings-info {
+    display: block;
+    transition: opacity var(--animation-speed-fast) var(--animation-timing-fade-in);
+  }
+
+  .product-savings-info--loading {
+    opacity: 0.4;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.product_savings_info",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "t:settings.product_savings_info.text_label",
+      "info": "t:settings.product_savings_info.text_info"
+    },
+    {
+      "type": "select",
+      "id": "savings_display_type",
+      "label": "t:settings.product_savings_info.display_type_label",
+      "options": [
+        {
+          "value": "percent",
+          "label": "t:settings.product_savings_info.display_type_percent"
+        },
+        {
+          "value": "amount",
+          "label": "t:settings.product_savings_info.display_type_amount"
+        }
+      ],
+      "default": "percent"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.product_savings_info",
+      "category": "t:categories.product"
+    }
+  ]
+}
+{% endschema %}

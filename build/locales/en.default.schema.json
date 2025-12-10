@@ -231,6 +231,7 @@
     "product_meta": "Product meta",
     "product_meta_list": "Product meta list",
     "product_page": "Product page",
+    "product_savings_info": "Product savings info",
     "product_vendor": "Product vendor",
     "tooltip": "Tooltip",
     "tooltips": "Tooltips",
@@ -765,6 +766,13 @@
     "make_element_focusable": "Make this element focusable",
     "meta": "Meta",
     "metafields": "Metafields",
+    "product_savings_info": {
+      "text_label": "Custom savings text",
+      "text_info": "Use %value% as a placeholder for the savings value (percentage or amount).",
+      "display_type_label": "Savings display type",
+      "display_type_percent": "Percentage",
+      "display_type_amount": "Amount"
+    },
     "sale_price_color": "Sale price color",
     "savings_display_type": "Savings display type",
     "secondary_background": "Secondary background",

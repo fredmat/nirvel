@@ -9,6 +9,7 @@ class ProductBadges extends HTMLElement {
       );
 
     if (!this.variantPicker) return;
+
     this.variantPicker.addEventListener('variant:update', this.onVariantUpdate);
   }
 
