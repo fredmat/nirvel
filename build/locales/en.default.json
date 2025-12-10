@@ -110,6 +110,9 @@
     "sort": "Sort"
   },
   "blocks": {
+    "product_badges": {
+      "badge_text_save_dynamic": "Save {{ value }}"
+    },
     "product_meta_list": {
       "bulb_type": "Bulb",
       "bulb_cap_type": "Bulb cap",
@@ -123,8 +126,6 @@
       "tabletop_material": "Tabletop material",
       "vendor": "Vendor"
     },
-
-
     "top_seller_badge": {
       "bestsellers": "Best Sale"
     },
@@ -172,17 +173,9 @@
     }
   },
   "content": {
-    "product_badge_save_percentage": "Save {{ value }}%",
-    "product_badge_save_amount": "Save {{ value }}",
-    "product_savings_info_text": "You save {{ value }}",
-
-
-
-
-
-
     "discount": "Discount",
     "account_title": "Account",
+    "badge_text_save_dynamic": "Save {{ value }}",
     "terms_and_policies": "Terms and Policies",
     "account_title_personalized": "Hi {{ first_name }}",
     "account_orders": "Orders",

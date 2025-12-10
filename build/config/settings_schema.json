@@ -1434,36 +1434,15 @@
     "name": "t:names.badges",
     "settings": [
       {
-        "type": "checkbox",
-        "id": "badge_show_savings",
-        "label": "t:settings.show_savings",
-        "default": false
-      },
-      {
-        "type": "select",
-        "id": "badge_savings_display_type",
-        "label": "t:settings.savings_display_type",
-        "options": [
-          {
-            "value": "percent",
-            "label": "t:options.percent"
-          },
-          {
-            "value": "amount",
-            "label": "t:options.amount"
-          }
-        ],
-        "default": "percent",
-        "visible_if": "{{ settings.badge_show_savings }}"
+        "type": "text",
+        "id": "badge_text",
+        "label": "t:settings.text",
+        "visible_if": "{{ settings.badge_show_savings == false }}"
       },
       {
         "type": "select",
         "id": "badge_position",
         "options": [
-          {
-            "value": "bottom-left",
-            "label": "t:options.bottom_left"
-          },
           {
             "value": "top-left",
             "label": "t:options.top_left"
@@ -1471,6 +1450,14 @@
           {
             "value": "top-right",
             "label": "t:options.top_right"
+          },
+          {
+            "value": "bottom-left",
+            "label": "t:options.bottom_left"
+          },
+          {
+            "value": "bottom-right",
+            "label": "t:options.bottom_right"
           }
         ],
         "default": "top-left",
@@ -1487,10 +1474,45 @@
         "default": 40
       },
       {
+        "type": "header",
+        "content": "t:content.savings_display"
+      },
+      {
+        "type": "checkbox",
+        "id": "badge_show_savings",
+        "label": "t:settings.show_savings",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "badge_savings_display_type",
+        "label": "t:settings.type",
+        "options": [
+          {
+            "value": "percent",
+            "label": "t:options.percent"
+          },
+          {
+            "value": "amount",
+            "label": "t:options.amount"
+          }
+        ],
+        "default": "percent",
+        "visible_if": "{{ settings.badge_show_savings }}"
+      },
+      {
+        "type": "text",
+        "id": "badge_text_savings",
+        "label": "t:settings.custom_savings_text",
+        "info": "t:info.badge_text_savings_info",
+        "visible_if": "{{ settings.badge_show_savings }}"
+      },
+      {
         "type": "checkbox",
         "id": "badge_enable_animation",
-        "label": "t:settings.badge_enable_animation",
-        "default": false
+        "label": "t:settings.enable_animation",
+        "default": true,
+        "visible_if": "{{ settings.badge_show_savings }}"
       },
       {
         "type": "header",

@@ -34,6 +34,7 @@
   "content": {
     "empty_cart": "Empty cart",
     "mobile_padding": "Mobile padding",
+    "savings_display": "Savings display",
 
 
 
@@ -201,6 +202,12 @@
     "work_quickly_to_ship": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>"
   },
   "info": {
+    "badge_text_savings_info": "Use %value% as a placeholder for the savings value (percentage or amount).",
+
+
+
+
+
     "applies_on_image_only": "Applies to images only",
     "aspect_ratio_adjusted": "Adjusted in some layouts",
     "auto_open_cart_drawer": "When enabled, the cart drawer will automatically open when a product is added to cart.",
@@ -231,7 +238,6 @@
     "product_meta": "Product meta",
     "product_meta_list": "Product meta list",
     "product_page": "Product page",
-    "product_savings_info": "Product savings info",
     "product_vendor": "Product vendor",
     "tooltip": "Tooltip",
     "tooltips": "Tooltips",
@@ -753,12 +759,13 @@
   },
   "settings": {
     "background_opacity": "Background opacity",
-    "badge_enable_animation": "Enable badge animation",
+    "custom_savings_text": "Custom savings text",
     "button_text": "Button text",
     "cart_drawer_continue_link": "Show \"Continue shopping\" link",
     "cart_drawer_hide_remove_button": "Hide \"Remove\" button in cart drawer",
     "cart_drawer_increase_width": "Increase cart drawer width",
     "cursor": "Cursor",
+    "enable_animation": "Enable animation",
     "enable_vendor_link": "Enable vendor link",
     "heading_case": "Heading case",
     "link_case": "Link case",
@@ -766,15 +773,7 @@
     "make_element_focusable": "Make this element focusable",
     "meta": "Meta",
     "metafields": "Metafields",
-    "product_savings_info": {
-      "text_label": "Custom savings text",
-      "text_info": "Use %value% as a placeholder for the savings value (percentage or amount).",
-      "display_type_label": "Savings display type",
-      "display_type_percent": "Percentage",
-      "display_type_amount": "Amount"
-    },
     "sale_price_color": "Sale price color",
-    "savings_display_type": "Savings display type",
     "secondary_background": "Secondary background",
     "secondary_text": "Secondary text",
     "show_account_link": "Show account link",
@@ -1218,6 +1217,7 @@
     "materials": "Materials",
     "popup_link": "Popup link",
     "return_policy": "Return policy",
+    "savings": "",
     "shipping": "Shipping",
     "shop_now_button_label": "Shop now",
     "shop_our_latest_arrivals": "Shop our latest arrivals!",
