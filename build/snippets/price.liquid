@@ -5,8 +5,6 @@
   @param {product} product_resource - The product to render
   @param {boolean} [show_unit_price] - Whether to show the unit price
   @param {boolean} [show_sale_price_first] - Whether to show the sale price first
-  @param {boolean} [show_tax_info] - Whether to show tax note
-  @param {boolean} [show_tax_info_tooltip] - Whether to show tax note as tooltip
 {%- enddoc -%}
 
 {%- liquid
@@ -19,20 +17,6 @@
   assign show_compare_price = false
   if compare_at_price > price
     assign show_compare_price = true
-  endif
-
-  assign savings_int = 0
-  assign savings_price = 0
-  if show_compare_price
-    assign savings_int = compare_at_price | minus: price
-    assign savings_price = savings_int | money
-  endif
-
-  assign savings_percentage = 0
-  if show_compare_price
-    assign savings_percentage = compare_at_price | minus: price
-    assign savings_percentage = savings_percentage | times: 100
-    assign savings_percentage = savings_percentage | divided_by: compare_at_price
   endif
 
   if product_resource == blank
@@ -57,51 +41,41 @@
   endif
 -%}
 
-<div
-  class="price-container"
-  ref="priceContainer">
-  {% if show_sale_price_first == false and show_compare_price %}
-    <span role="group">
-      <span class="visually-hidden">{{ 'content.price_regular' | t }}&nbsp;</span>
-      <span class="compare-at-price">{{- compare_at_price -}}</span>
-    </span>
-  {% endif %}
+<price-text>
+  <div ref="priceContainer">
+    {% if show_sale_price_first == false and show_compare_price %}
+      <span role="group">
+        <span class="visually-hidden">{{ 'content.price_regular' | t }}&nbsp;</span>
+        <span class="compare-at-price">{{- compare_at_price -}}</span>
+      </span>
+    {% endif %}
 
-  {% if show_compare_price %}
-    <span role="group">
-      <span class="visually-hidden">{{ 'content.price_sale' | t }}&nbsp;</span>
-      {% render 'price-main',
-        price_html: price,
-        show_compare_price: show_compare_price,
-        show_tax_info: show_tax_info,
-        show_tax_info_tooltip: show_tax_info_tooltip
-      %}
-    </span>
-  {% else %}
-    {% render 'price-main',
-      price_html: price,
-      show_tax_info: show_tax_info,
-      show_tax_info_tooltip: show_tax_info_tooltip
-    %}
-  {% endif %}
+    {% if show_compare_price %}
+      <span role="group">
+        <span class="visually-hidden">{{ 'content.price_sale' | t }}&nbsp;</span>
+        <span class="price{% if show_compare_price %} sale-price{% endif %}">{{ price | default: '&nbsp;' }}</span>
+      </span>
+    {% else %}
+      <span class="price{% if show_compare_price %} sale-price{% endif %}">{{ price | default: '&nbsp;' }}</span>
+    {% endif %}
 
-  {% if show_sale_price_first == true and show_compare_price %}
-    <span role="group">
-      <span class="visually-hidden">{{ 'content.price_regular' | t }}&nbsp;</span>
-      <span class="compare-at-price">{{- compare_at_price -}}</span>
-    </span>
-  {% endif %}
-
-  {%- if selected_variant.unit_price and show_unit_price %}
-    {%- liquid
-      if product.handle == closest.product.handle and settings.currency_code_enabled_product_pages
-        assign unit_price = selected_variant.unit_price | money_with_currency
-      elsif product.handle != closest.product.handle and settings.currency_code_enabled_product_cards
-        assign unit_price = selected_variant.unit_price | money_with_currency
-      else
-        assign unit_price = selected_variant.unit_price | money
-      endif
-    -%}
-    {% render 'unit-price', price: unit_price, measurement: selected_variant.unit_price_measurement %}
-  {%- endif -%}
-</div>
+    {% if show_sale_price_first == true and show_compare_price %}
+      <span role="group">
+        <span class="visually-hidden">{{ 'content.price_regular' | t }}&nbsp;</span>
+        <span class="compare-at-price">{{- compare_at_price -}}</span>
+      </span>
+    {% endif %}
+    {%- if selected_variant.unit_price and show_unit_price %}
+      {%- liquid
+        if product.handle == closest.product.handle and settings.currency_code_enabled_product_pages
+          assign unit_price = selected_variant.unit_price | money_with_currency
+        elsif product.handle != closest.product.handle and settings.currency_code_enabled_product_cards
+          assign unit_price = selected_variant.unit_price | money_with_currency
+        else
+          assign unit_price = selected_variant.unit_price | money
+        endif
+      -%}
+      {% render 'unit-price', price: unit_price, measurement: selected_variant.unit_price_measurement %}
+    {%- endif -%}
+  </div>
+</price-text>

@@ -1,13 +1,12 @@
-{%- comment -%}
-  price-main.liquid
-  Affiche un prix + (optionnellement) le tooltip tax info.
+{%- doc -%}
+  Renders a price block with optional tax and duties information.
 
-  Params :
-  - price_html (string) : prix déjà formatté
-  - show_tax_info (boolean)
-  - show_tax_info_tooltip (boolean)
-  - show_compare_price (boolean)
-{%- endcomment -%}
+  @param {string}  price_html — Pre-formatted price markup to be displayed.
+  @param {boolean} show_tax_info — Enables the display of tax and duties information (with or without tooltip).
+  @param {boolean} show_tax_info_tooltip — When true and combined with `show_tax_info`, displays an interactive tooltip
+    containing localized tax, duties, and shipping policy messages.
+  @param {boolean} show_compare_price — When true, adds a "sale-price" CSS class to style the price as a discounted value.
+{%- enddoc -%}
 
 <div class="price-tax-note-container">
   <span class="price{% if show_compare_price %} sale-price{% endif %}">{{ price_html | default: '&nbsp;' }}</span>

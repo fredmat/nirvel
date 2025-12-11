@@ -48,12 +48,10 @@
   {% render 'price',
     show_unit_price: true,
     product_resource: product_resource,
-    show_sale_price_first: block_settings.show_sale_price_first,
-    show_tax_info: block_settings.show_tax_info,
-    show_tax_info_tooltip: block_settings.show_tax_info_tooltip
+    show_sale_price_first: block_settings.show_sale_price_first
   %}
 
-  {% if block_settings.show_tax_info and block_settings.show_tax_info_tooltip == false %}
+  {% if block_settings.show_tax_info %}
     <div class="tax-note">
       {%- if cart.duties_included and cart.taxes_included -%}
         {{ 'content.duties_and_taxes_included' | t }}
@@ -98,34 +96,54 @@
     display: none;
   }
 
-  product-price .price-container {
-    display: flex;
-    align-items: center;
-    gap: var(--gap-xs);
+  price-text {
+    --shimmer-text-color: rgb(var(--color-foreground-rgb) / var(--opacity-50));
+    --shimmer-color-light: rgb(var(--color-foreground-rgb) / var(--opacity-10));
+    --shimmer-speed: 1.25s;
+
+    display: inline-block;
+    position: relative;
+    transition: color var(--animation-speed-slow) ease;
+    line-height: 1;
+
+    &::after {
+      content: attr(value);
+      position: absolute;
+      inset: 0;
+      color: transparent;
+      opacity: 0;
+      transition: opacity var(--animation-speed-slow) var(--animation-easing);
+      pointer-events: none;
+      background-image: linear-gradient(
+        -85deg,
+        var(--shimmer-text-color) 10%,
+        var(--shimmer-color-light) 50%,
+        var(--shimmer-text-color) 90%
+      );
+      background-clip: text;
+      background-size: 200% 100%;
+      background-position: 100% 0;
+      place-content: center;
+    }
+
+    &[shimmer] {
+      color: transparent;
+
+      &::after {
+        opacity: 1;
+        animation: text-shimmer var(--shimmer-speed) infinite linear;
+      }
+    }
   }
 
-  product-price .price-container .price-tax-note-container {
-    display: flex;
-    align-items: center;
-    gap: var(--gap-2xs);
-  }
+  @keyframes text-shimmer {
+    0% {
+      background-position: 100% 0;
+    }
 
-  .tax-note-tooltip {
-    display: inline-flex;
-  }
-
-  .tax-note-tooltip .tax-note-tooltip__button {
-    display: inline-flex;
-  }
-
-  .tax-note-tooltip .svg-wrapper {
-    color: var(--color-foreground);
-  }
-
-  .tax-note-tooltip .svg-wrapper > svg {
-    fill: currentcolor;
-    width: 0.875rem;
-    height: 0.875rem;
+    100% {
+      background-position: -100% 0;
+    }
   }
 {% endstylesheet %}
 
@@ -159,13 +177,6 @@
       "id": "show_tax_info",
       "label": "t:settings.show_tax_info",
       "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "show_tax_info_tooltip",
-      "label": "t:settings.show_tax_info_tooltip",
-      "default": false,
-      "visible_if": "{{ block.settings.show_tax_info == true }}"
     },
     {
       "type": "header",
