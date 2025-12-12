@@ -67,19 +67,11 @@ class PriceText extends HTMLElement {
     this.variantPicker.removeEventListener("variant:update", this.onVariantUpdate);
   }
   onVariantSelected = () => {
-    this.setAttribute("shimmer", "");
-    this.setProperty.background = "red";
-    this.syncValue();
+    this.classList.add("price-text--muted");
   };
   onVariantUpdate = () => {
-    this.removeAttribute("shimmer");
-    this.syncValue();
+    this.classList.remove("price-text--muted");
   };
-  syncValue() {
-    const priceSpan = this.querySelector(".price");
-    if (!priceSpan) return;
-    this.setAttribute("value", priceSpan.textContent.trim());
-  }
 }
 if (!customElements.get("price-text")) {
   customElements.define("price-text", PriceText);

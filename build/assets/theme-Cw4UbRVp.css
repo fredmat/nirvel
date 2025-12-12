@@ -8,6 +8,21 @@
   color: var(--color-sale-price);
 }
 
+.unit-price {
+  display: block;
+  font-size: min(0.85em, var(--font-paragraph--size));
+  color: rgb(var(--color-foreground-rgb)/var(--opacity-subdued-text));
+}
+
+.tax-note.tax-note.tax-note {
+  font-size: min(0.85em, var(--font-paragraph--size));
+  color: rgb(var(--color-foreground-rgb)/var(--opacity-subdued-text));
+}
+
+product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
+  margin-block: 0;
+}
+
 .compare-at-price {
   position: relative;
   display: inline-flex;
@@ -16,7 +31,7 @@
   opacity: 1;
   text-decoration-line: none;
   text-decoration-thickness: 0px;
-  color: rgb(var(--color-foreground-rgb)/0.5);
+  color: rgb(var(--color-foreground-rgb)/var(--opacity-subdued-text));
 }
 .compare-at-price::before {
   content: "";

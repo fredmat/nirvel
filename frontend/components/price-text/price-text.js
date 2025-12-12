@@ -1,6 +1,5 @@
 class PriceText extends HTMLElement {
   connectedCallback() {
-    // Trouver le bon variant picker comme dans product-badges
     this.variantPicker =
       this.closest('product-card, .product-card, [data-product-card]')?.querySelector(
         'variant-picker, swatches-variant-picker-component'
@@ -23,30 +22,12 @@ class PriceText extends HTMLElement {
   }
 
   onVariantSelected = () => {
-    // Démarre le shimmer
-    this.setAttribute('shimmer', '');
-    this.setProperty.background = 'red';
-
-    // Mettre à jour l’attribut "value" utilisé par ::after
-    this.syncValue();
+    this.classList.add('price-text--muted');
   };
 
   onVariantUpdate = () => {
-    // Le shimmer doit disparaître
-    this.removeAttribute('shimmer');
-
-    // Met à jour l'attribut "value" pour refléter le nouveau prix
-    this.syncValue();
+    this.classList.remove('price-text--muted');
   };
-
-  syncValue() {
-    // Récupérer le texte visible du prix
-    const priceSpan = this.querySelector('.price');
-    if (!priceSpan) return;
-
-    // Mettre à jour l'attribut value pour le shimmer (::after)
-    this.setAttribute('value', priceSpan.textContent.trim());
-  }
 }
 
 if (!customElements.get('price-text')) {
