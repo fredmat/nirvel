@@ -25,6 +25,7 @@ class PriceText extends HTMLElement {
   onVariantSelected = () => {
     // Démarre le shimmer
     this.setAttribute('shimmer', '');
+    this.setProperty.background = 'red';
 
     // Mettre à jour l’attribut "value" utilisé par ::after
     this.syncValue();

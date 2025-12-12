@@ -68,6 +68,7 @@ class PriceText extends HTMLElement {
   }
   onVariantSelected = () => {
     this.setAttribute("shimmer", "");
+    this.setProperty.background = "red";
     this.syncValue();
   };
   onVariantUpdate = () => {

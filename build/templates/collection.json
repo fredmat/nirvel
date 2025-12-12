@@ -189,7 +189,6 @@
                 "show_sale_price_first": true,
                 "show_installments": false,
                 "show_tax_info": false,
-                "show_tax_info_tooltip": false,
                 "type_preset": "custom",
                 "width": "100%",
                 "alignment": "left",
@@ -209,7 +208,6 @@
             "swatches_DUERgK": {
               "type": "swatches",
               "name": "t:names.swatches",
-              "disabled": true,
               "settings": {
                 "product_swatches_alignment": "flex-start",
                 "product_swatches_alignment_mobile": "flex-start",
