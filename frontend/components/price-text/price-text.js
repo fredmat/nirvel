@@ -22,11 +22,11 @@ class PriceText extends HTMLElement {
   }
 
   onVariantSelected = () => {
-    this.classList.add('price-text--muted');
+    // ...
   };
 
   onVariantUpdate = () => {
-    this.classList.remove('price-text--muted');
+    // ...
   };
 }
 

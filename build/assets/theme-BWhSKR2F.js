@@ -67,10 +67,8 @@ class PriceText extends HTMLElement {
     this.variantPicker.removeEventListener("variant:update", this.onVariantUpdate);
   }
   onVariantSelected = () => {
-    this.classList.add("price-text--muted");
   };
   onVariantUpdate = () => {
-    this.classList.remove("price-text--muted");
   };
 }
 if (!customElements.get("price-text")) {
