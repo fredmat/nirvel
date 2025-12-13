@@ -3,7 +3,7 @@
 
   @param {object} [settings] - An object containing theme settings.
 
-  @param {boolean} [settings.auto_open_cart_drawer] - If `true`, the cart drawer opens automatically after an item is
+  @param {boolean} [settings.cart_drawer_auto_open] - If `true`, the cart drawer opens automatically after an item is
   added.
   @param {string} [settings.drawer_color_scheme] - The color scheme for the drawer.
 {%- enddoc -%}
@@ -17,7 +17,7 @@
 <cart-drawer-component
   class="cart-drawer"
   {{ block.shopify_attributes }}
-  {% if settings.auto_open_cart_drawer %}
+  {% if settings.cart_drawer_auto_open %}
     auto-open
   {% endif %}
 >

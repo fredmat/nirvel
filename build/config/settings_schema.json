@@ -1773,23 +1773,6 @@
         "default": "subheading"
       },
       {
-        "type": "range",
-        "id": "cart_drawer_border_radius",
-        "label": "t:settings.border_radius",
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "default": 0
-      },
-      {
-        "type": "checkbox",
-        "id": "auto_open_cart_drawer",
-        "label": "t:settings.auto_open_cart_drawer",
-        "default": false,
-        "visible_if": "{{ settings.cart_type == 'drawer' }}"
-      },
-      {
         "type": "header",
         "content": "t:content.cart_features"
       },
@@ -1877,6 +1860,52 @@
       {
         "type": "range",
         "id": "cart_thumbnail_border_radius",
+        "label": "t:settings.border_radius",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "t:names.cart_drawer",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_drawer_show_vendor",
+        "label": "t:settings.show_vendor",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_drawer_hide_remove_button",
+        "label": "t:settings.cart_drawer_hide_remove_button",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_drawer_show_view_cart_button",
+        "label": "t:settings.show_view_cart_button",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_drawer_auto_open",
+        "label": "t:settings.auto_open_cart_drawer",
+        "info": "t:info.auto_open_cart_drawer",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_drawer_increase_width",
+        "label": "t:settings.cart_drawer_increase_width",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "cart_drawer_border_radius",
         "label": "t:settings.border_radius",
         "min": 0,
         "max": 100,

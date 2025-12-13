@@ -210,7 +210,7 @@
 
     "applies_on_image_only": "Applies to images only",
     "aspect_ratio_adjusted": "Adjusted in some layouts",
-    "auto_open_cart_drawer": "When enabled, the cart drawer will automatically open when a product is added to cart.",
+    "auto_open_cart_drawer": "Drawer will automatically open when a product is added to cart.",
     "carousel_hover_behavior_not_supported": "\"Carousel\" hover is not supported when \"Carousel\" type is selected at the section level",
     "carousel_layout_on_mobile": "Carousel is used on mobile",
     "checkout_buttons": "Allows buyers to check out faster and can improve conversion. [Learn more](https://help.shopify.com/manual/online-store/dynamic-checkout)",
@@ -234,6 +234,7 @@
     "media_type_info": "Features are populated from your menu links"
   },
   "names": {
+    "cart_drawer": "Cart drawer",
     "product_badges": "Product badges",
     "product_meta": "Product meta",
     "product_meta_list": "Product meta list",
@@ -785,6 +786,7 @@
     "translucent_background": "Translucent background",
     "trigger": "Trigger",
     "typography": "Typography",
+    "show_vendor": "Show vendor",
 
 
 

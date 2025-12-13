@@ -1,0 +1,11 @@
+{
+  "type": "custom.overlays",
+  "name": "Overlays",
+  "sections": {
+    "overlay_host": {
+      "type": "overlay-host",
+      "settings": {}
+    }
+  },
+  "order": ["overlay_host"]
+}
