@@ -87,42 +87,31 @@
   </div>
 </div>
 
-{% if template == 'cart' %}
-  <div class="cart__ctas">
-    <button
-      type="submit"
-      id="checkout"
-      class="cart__checkout-button button"
-      name="checkout"
-      {% if cart == empty %}
-        disabled
-      {% endif %}
-      form="cart-form"
+<div class="cart__ctas">
+  <button
+    type="submit"
+    id="checkout"
+    class="cart__checkout-button button"
+    name="checkout"
+    {% if cart == empty %}
+      disabled
+    {% endif %}
+    form="cart-form"
+  >
+    {{ 'content.checkout' | t }}
+  </button>
+
+  {% if additional_checkout_buttons and settings.show_accelerated_checkout_buttons %}
+    <div
+      class="
+        additional-checkout-buttons
+        {% if accelerated_checkout_buttons_layout == 'vertical' %}additional-checkout-buttons--vertical{% endif %}
+      "
     >
-      {{ 'content.checkout' | t }}
-    </button>
-
-    {% if template != 'cart' %}
-      <a
-        href="{{ routes.cart_url }}"
-        class="cart__view-button button button-secondary"
-      >
-        {{ 'content.view_cart' | t }}
-      </a>
-    {% endif %}
-
-    {% if additional_checkout_buttons and settings.show_accelerated_checkout_buttons %}
-      <div
-        class="
-          additional-checkout-buttons
-          {% if accelerated_checkout_buttons_layout == 'vertical' %}additional-checkout-buttons--vertical{% endif %}
-        "
-      >
-        {{ content_for_additional_checkout_buttons }}
-      </div>
-    {% endif %}
-  </div>
-{% endif %}
+      {{ content_for_additional_checkout_buttons }}
+    </div>
+  {% endif %}
+</div>
 
 {% stylesheet %}
   .cart-actions {

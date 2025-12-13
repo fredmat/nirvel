@@ -761,9 +761,8 @@
     "background_opacity": "Background opacity",
     "custom_savings_text": "Custom savings text",
     "button_text": "Button text",
-    "cart_drawer_continue_link": "Show \"Continue shopping\" link",
-    "cart_drawer_hide_remove_button": "Hide \"Remove\" button in cart drawer",
-    "cart_drawer_increase_width": "Increase cart drawer width",
+    "cart_drawer_hide_remove_button": "Hide remove button",
+    "cart_drawer_increase_width": "Increase drawer width",
     "cursor": "Cursor",
     "enable_animation": "Enable animation",
     "enable_vendor_link": "Enable vendor link",
@@ -780,6 +779,7 @@
     "show_rank_number": "Show rank number",
     "show_rank_number_until": "Show rank number until",
     "show_savings": "Show savings",
+    "show_view_cart_button": "Show view cart button",
     "max_rank_display_badge": "Maximum rank to display badge",
     "text_size": "Text size",
     "translucent_background": "Translucent background",
@@ -844,7 +844,7 @@
     "cart_total": "Cart total",
     // Setting label for cart display format (page vs drawer)
     "cart_type": "Type",
-    "auto_open_cart_drawer": "\"Add to cart\" auto-opens drawer",
+    "auto_open_cart_drawer": "Add to cart auto-opens drawer",
     // Text case setting for typography (uppercase/lowercase)
     "case": "Case",
     "checkout_buttons": "Accelerated checkout buttons",

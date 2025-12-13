@@ -1773,30 +1773,19 @@
         "default": "subheading"
       },
       {
+        "type": "range",
+        "id": "cart_drawer_border_radius",
+        "label": "t:settings.border_radius",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "default": 0
+      },
+      {
         "type": "checkbox",
         "id": "auto_open_cart_drawer",
         "label": "t:settings.auto_open_cart_drawer",
-        "default": false,
-        "visible_if": "{{ settings.cart_type == 'drawer' }}"
-      },
-      {
-        "type": "checkbox",
-        "id": "cart_drawer_increase_width",
-        "label": "t:settings.cart_drawer_increase_width",
-        "default": true,
-        "visible_if": "{{ settings.cart_type == 'drawer' }}"
-      },
-      {
-        "type": "checkbox",
-        "id": "cart_drawer_continue_link",
-        "label": "t:settings.cart_drawer_continue_link",
-        "default": true,
-        "visible_if": "{{ settings.cart_type == 'drawer' }}"
-      },
-      {
-        "type": "checkbox",
-        "id": "cart_drawer_hide_remove_button",
-        "label": "t:settings.cart_drawer_hide_remove_button",
         "default": false,
         "visible_if": "{{ settings.cart_type == 'drawer' }}"
       },

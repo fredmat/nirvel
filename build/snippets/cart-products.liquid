@@ -14,8 +14,8 @@
   {% endif %}
 >
   {% if cart.empty? %}
-    {%- if block_settings.show_account_link and shop.customer_accounts_enabled and customer == null -%}
-      <p class="{{ block_settings.type_preset | default: 'paragraph' }}">
+    {%- if shop.customer_accounts_enabled and customer == null -%}
+      <p>
         {{ 'actions.log_in_html' | t: link: routes.account_login_url }}
       </p>
     {%- endif -%}
@@ -24,11 +24,7 @@
       class="button cart-items__empty-button"
       href="{{ settings.empty_cart_button_link | default: routes.all_products_collection_url }}"
     >
-      {%- if block_settings.empty_cart_button_text != blank -%}
-        {{- block_settings.empty_cart_button_text -}}
-      {%- else -%}
-        {{- 'actions.shop_now_button_label' | t -}}
-      {%- endif -%}
+      {{ 'actions.continue_shopping' | t }}
     </a>
   {%- else -%}
     <span
@@ -225,12 +221,9 @@
                   {% endif %}
 
                   <div>
-                    {% comment %}
-                      Displayed if discount applied
-                    {% endcomment %}
                     {% if item.original_price != item.final_price %}
                       <span class="visually-hidden">{{ 'content.price_sale' | t }}</span>
-                      <span class="price sale-price">{{ item.final_price | money }}</span>
+                      <span>{{ item.final_price | money }}</span>
                       <span class="visually-hidden">{{ 'content.price_regular' | t }}</span>
                       <s class="compare-at-price">
                         {% if item.variant.compare_at_price > item.original_price %}
@@ -239,9 +232,6 @@
                           {{ item.original_price | money }}
                         {% endif %}
                       </s>
-                    {% comment %}
-                      Displayed if no discount applied
-                    {% endcomment %}
                     {% else %}
                       {% if item.variant.compare_at_price > item.original_price %}
                         <span class="visually-hidden">{{ 'content.price_sale' | t }}</span>
@@ -249,7 +239,7 @@
                         <span class="visually-hidden">{{ 'content.price' | t }}</span>
                       {% endif %}
 
-                      <span class="price{% if item.variant.compare_at_price > item.original_price %} sale-price{% endif %}">{{ item.original_price | money }}</span>
+                      <span>{{ item.original_price | money }}</span>
 
                       {% if item.variant.compare_at_price > item.original_price %}
                         <span class="visually-hidden">{{ 'content.price_regular' | t }}</span>
@@ -445,7 +435,7 @@
   }
 
   .cart-items__title {
-    font-size: var(--cart-font-size--xs);
+    font-size: var(--cart-font-size--md);
     color: var(--color-foreground);
     text-transform: var(--product-title-case);
   }
@@ -661,8 +651,7 @@
     width: 100%;
   }
 
-  .cart__ctas .cart__checkout-button,
-  .cart__ctas .cart__view-button {
+  .cart__ctas .cart__checkout-button {
     width: 100%;
     height: clamp(25px, var(--height-buy-buttons), 55px);
     padding-inline: var(--padding-4xl);

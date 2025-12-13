@@ -39,7 +39,10 @@
 
   .cart-drawer__dialog {
     position: fixed;
-    border-radius: 0;
+    border-start-start-radius: var(--cart-drawer-border-radius);
+    border-end-start-radius: var(--cart-drawer-border-radius);
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
     width: var(--cart-drawer-width);
     max-width: 95vw;
     height: 100%;
@@ -101,10 +104,6 @@
 
   .cart-drawer__items .cart-items__table-row:last-child {
     border-bottom: none;
-  }
-
-  .cart-drawer__items--no-remove .cart-items__remove {
-    display: none;
   }
 
   .cart-drawer__summary {
