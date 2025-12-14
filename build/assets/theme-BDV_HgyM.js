@@ -50,23 +50,3 @@ class ProductBadges extends HTMLElement {
 if (!customElements.get("product-badges")) {
   customElements.define("product-badges", ProductBadges);
 }
-class PriceText extends HTMLElement {
-  connectedCallback() {
-    this.variantPicker = null;
-    if (!this.variantPicker) return;
-    this.variantPicker.addEventListener("variant:selected", this.onVariantSelected);
-    this.variantPicker.addEventListener("variant:update", this.onVariantUpdate);
-  }
-  disconnectedCallback() {
-    if (!this.variantPicker) return;
-    this.variantPicker.removeEventListener("variant:selected", this.onVariantSelected);
-    this.variantPicker.removeEventListener("variant:update", this.onVariantUpdate);
-  }
-  onVariantSelected = () => {
-  };
-  onVariantUpdate = () => {
-  };
-}
-if (!customElements.get("price-text")) {
-  customElements.define("price-text", PriceText);
-}

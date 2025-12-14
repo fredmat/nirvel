@@ -65,7 +65,7 @@
     "cart_drawer_hide_remove_button": true,
     "cart_drawer_show_view_cart_button": true,
     "cart_drawer_auto_open": true,
-    "cart_drawer_increase_width": true,
+    "cart_drawer_increase_width": false,
     "cart_drawer_border_radius": 14,
     "drawer_drop_shadow": true,
     "icon_stroke": "thin",

@@ -2129,6 +2129,19 @@
     "name": "t:names.prices",
     "settings": [
       {
+        "type": "checkbox",
+        "id": "show_sale_price_first_default",
+        "label": "t:settings.show_sale_price_first_default",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "sale_price_color",
+        "label": "t:settings.sale_price_color",
+        "default": "#E11D48",
+        "alpha": true
+      },
+      {
         "type": "header",
         "content": "t:settings.currency_code"
       },
@@ -2155,13 +2168,6 @@
         "id": "currency_code_enabled_cart_total",
         "label": "t:settings.cart_total",
         "default": true
-      },
-      {
-        "type": "color",
-        "id": "sale_price_color",
-        "label": "t:settings.sale_price_color",
-        "default": "#E11D48",
-        "alpha": true
       }
     ]
   },

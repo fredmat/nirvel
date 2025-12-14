@@ -11,6 +11,7 @@
   "sections": {
     "section_9D7eiK": {
       "type": "section",
+      "disabled": true,
       "name": "t:names.custom_section",
       "settings": {
         "content_direction": "column",

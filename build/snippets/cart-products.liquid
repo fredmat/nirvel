@@ -6,6 +6,8 @@
   fetchpriority="low"
 ></script>
 
+{% render 'vite' entry: 'gift-wrap.js' %}
+
 <div
   {{ block.shopify_attributes }}
   class="cart-items__wrapper"
@@ -151,6 +153,7 @@
                       {{- item.product.title -}}
                     </a>
                   </p>
+
                   {% if item.product.vendor and block_settings.vendor %}
                     <p>
                       {{ item.product.vendor }}
@@ -209,6 +212,29 @@
                     {% endif %}
                   {%- endif -%}
 
+                  {% if item.product.metafields.custom.gift_wrap_available %}
+                    <gift-wrap-toggle
+                      data-line-key="{{ item.key }}"
+                      data-product-title="{{ item.product.title | escape }}"
+                      {% if item.properties._gift_wrap == 'yes' %}
+                        data-active="true"
+                      {% endif %}
+                    >
+                      <label class="gift-wrap-toggle__label">
+                        <input
+                          type="checkbox"
+                          class="gift-wrap-toggle__checkbox"
+                          {% if item.properties._gift_wrap == 'yes' %}
+                            checked
+                          {% endif %}
+                        >
+                        <span class="gift-wrap-toggle__text">
+                          Gift wrapping
+                        </span>
+                      </label>
+                    </gift-wrap-toggle>
+                  {% endif %}
+
                   {% if item.line_level_discount_allocations.size > 0 %}
                     <ul
                       class="list-unstyled"
@@ -220,31 +246,38 @@
                     </ul>
                   {% endif %}
 
+                  {% liquid
+                    assign is_discounted = false
+                    if item.final_price < item.original_price
+                      assign is_discounted = true
+                    endif
+
+                    assign has_compare_at = false
+                    if item.variant.compare_at_price > item.final_price
+                      assign has_compare_at = true
+                    endif
+
+                    assign is_on_sale = false
+                    if is_discounted or has_compare_at
+                      assign is_on_sale = true
+                    endif
+                  %}
+
                   <div>
-                    {% if item.original_price != item.final_price %}
+                    {% if is_on_sale %}
                       <span class="visually-hidden">{{ 'content.price_sale' | t }}</span>
-                      <span>{{ item.final_price | money }}</span>
+                      <span class="price sale-price">{{ item.final_price | money }}</span>
                       <span class="visually-hidden">{{ 'content.price_regular' | t }}</span>
                       <s class="compare-at-price">
-                        {% if item.variant.compare_at_price > item.original_price %}
-                          {{ item.variant.compare_at_price | money }}
-                        {% else %}
-                          {{ item.original_price | money }}
-                        {% endif %}
+                        {%- if item.variant.compare_at_price > item.original_price -%}
+                          {{- item.variant.compare_at_price | money -}}
+                        {%- else -%}
+                          {{- item.original_price | money -}}
+                        {%- endif -%}
                       </s>
                     {% else %}
-                      {% if item.variant.compare_at_price > item.original_price %}
-                        <span class="visually-hidden">{{ 'content.price_sale' | t }}</span>
-                      {% else %}
-                        <span class="visually-hidden">{{ 'content.price' | t }}</span>
-                      {% endif %}
-
-                      <span>{{ item.original_price | money }}</span>
-
-                      {% if item.variant.compare_at_price > item.original_price %}
-                        <span class="visually-hidden">{{ 'content.price_regular' | t }}</span>
-                        <s class="compare-at-price">{{ item.variant.compare_at_price | money }}</s>
-                      {% endif %}
+                      <span class="visually-hidden">{{ 'content.price' | t }}</span>
+                      <span class="price">{{ item.original_price | money }}</span>
                     {% endif %}
                   </div>
                 </td>
@@ -325,6 +358,7 @@
           </tbody>
         </table>
       </div>
+
     </form>
   {%- endif -%}
 </div>
@@ -418,7 +452,7 @@
 
   .cart-items__details {
     grid-area: details;
-    color: rgb(var(--color-foreground-rgb) / var(--opacity-70));
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-75));
   }
 
   .cart-items__details > * + *,
@@ -436,12 +470,19 @@
 
   .cart-items__title {
     font-size: var(--cart-font-size--md);
+    font-weight: var(--font-subheading--weight);
+    line-height: var(--line-height--body-tight);
     color: var(--color-foreground);
     text-transform: var(--product-title-case);
   }
 
   .cart-items__variant {
     display: inline-block;
+  }
+
+  .cart-items__variant dd {
+    font-size: var(--cart-font-size--1xs);
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-55));
   }
 
   .cart-items__quantity {
