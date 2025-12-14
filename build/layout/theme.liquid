@@ -28,9 +28,9 @@
       render 'theme-styles-variables'
       render 'color-schemes'
 
+      render 'theme-custom-variables'
       render 'vite' entry: 'theme.scss', preload_stylesheet: true
       render 'vite' entry: 'theme.js'
-      render 'theme-custom-variables'
 
       if request.design_mode
         render 'theme-editor'
@@ -57,8 +57,6 @@
       blocking="render"
     ></script>
 
-    {% sections 'overlay-group' %}
-
     <main
       id="MainContent"
       class="content-for-layout"
@@ -70,8 +68,8 @@
       {{ content_for_layout }}
     </main>
 
+    {% sections 'overlay-group' %}
     {% sections 'footer-group' %}
-
     {% render 'search-modal' %}
 
     {% if settings.quick_add or settings.mobile_quick_add %}
