@@ -35,6 +35,9 @@
             "image_ratio": "square",
             "dividers": true,
             "vendor": false,
+            "show_account_link": false,
+            "type_preset": "",
+            "empty_cart_button_text": "",
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -52,7 +55,7 @@
             "border": "solid",
             "border_width": 1,
             "border_opacity": 8,
-            "border_radius": 0
+            "border_radius": 18
           },
           "blocks": {}
         }
