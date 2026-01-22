@@ -1,0 +1,48 @@
+{%- doc -%}
+  Renders a price block with optional tax and duties information.
+
+  @param {string}  price_html — Pre-formatted price markup to be displayed.
+  @param {boolean} show_tax_info — Enables the display of tax and duties information (with or without tooltip).
+  @param {boolean} show_tax_info_tooltip — When true and combined with `show_tax_info`, displays an interactive tooltip
+    containing localized tax, duties, and shipping policy messages.
+  @param {boolean} show_compare_price — When true, adds a "sale-price" CSS class to style the price as a discounted value.
+{%- enddoc -%}
+
+<div class="price-tax-note-container">
+  <span class="price{% if show_compare_price %} sale-price{% endif %}">{{ price_html | default: '&nbsp;' }}</span>
+
+  {% if show_tax_info and show_tax_info_tooltip %}
+    <div class="tax-note-tooltip">
+
+      {% capture content %}
+        {%- if cart.duties_included and cart.taxes_included -%}
+          {{- 'content.duties_and_taxes_included' | t -}}
+        {%- elsif cart.taxes_included -%}
+          {{- 'content.taxes_included' | t -}}
+        {%- elsif cart.duties_included -%}
+          {{- 'content.duties_included' | t -}}
+        {%- endif -%}
+
+        {%- if shop.shipping_policy.body != blank -%}
+          {{- 'content.shipping_policy' | t -}}
+        {%- endif -%}
+      {% endcapture %}
+
+      {% capture toggle_content %}
+        <span class="svg-wrapper">
+          <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+          </svg>
+        </span>
+      {% endcapture %}
+
+      {% render 'tooltip',
+        content: content,
+        label: toggle_content,
+        class: 'tax-note-tooltip__button'
+      %}
+
+    </div>
+  {% endif %}
+</div>

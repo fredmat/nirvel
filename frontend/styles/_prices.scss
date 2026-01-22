@@ -1,0 +1,59 @@
+.price-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-xs);
+
+  .price,
+  .compare-at-price,
+  .unit-price {
+    white-space: nowrap;
+  }
+
+  .price {
+    color: var(--color-price);
+  }
+
+  .unit-price {
+    // display: block;
+    font-size: min(0.85em, var(--font-paragraph--size));
+    color: rgb(var(--color-price-rgb) / var(--opacity-subdued-text));
+  }
+
+  &--on-sale {
+    .price {
+      color: var(--color-sale-price);
+    }
+
+    .compare-at-price {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      height: auto;
+      text-decoration: none;
+      color: rgb(var(--color-price-rgb) / var(--opacity-subdued-text));
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset-block-start: 50%;
+        width: 100%;
+        transform: rotate(-15deg);
+        border-block-end: 1px solid var(--color-sale-price);
+      }
+    }
+  }
+}
+
+// .tax-note.tax-note.tax-note {
+//   font-size: min(0.85em, var(--font-paragraph--size));
+//   color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+// }
+
+product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
+  margin-block: 0;
+}
+
+// // product-price.text-block .tax-note,
+// // product-price.text-block .unit-price {
+// //   font-weight: 400;
+// // }

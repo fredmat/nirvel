@@ -1,0 +1,14 @@
+{
+  "type": "custom.overlays",
+  "name": "t:names.overlays",
+  "sections": {
+    // "overlay_cart_drawer": {
+    //   "type": "overlay-cart-drawer",
+    //   "settings": {},
+    //   "blocks": {}
+    // }
+  },
+  "order": [
+    // "overlay_cart_drawer"
+  ]
+}

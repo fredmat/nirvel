@@ -1,0 +1,53 @@
+//
+// Stickers
+//
+
+.sticker {
+  display: flex;
+  align-items: center;
+  padding-block: var(--sticker-padding-block);
+  padding-inline: var(--sticker-padding-inline);
+  width: max-content;
+  background-color: var(--sticker-background);
+  border-radius: var(--sticker-border-radius);
+  color: var(--sticker-foreground);
+  font-family: var(--sticker-font-family);
+  font-style: var(--sticker-font-style);
+  font-weight: var(--sticker-font-weight);
+  font-size: var(--sticker-font-size);
+  line-height: var(--sticker-line-height);
+  text-transform: var(--sticker-text-case);
+  letter-spacing: var(--sticker-letter-spacing);
+
+  &--xs {
+    padding-block: var(--sticker-padding-block-xs);
+    padding-inline: var(--sticker-padding-inline-xs);
+    font-size: var(--sticker-font-size-xs);
+  }
+
+  &--sm {
+    padding-block: var(--sticker-padding-block-sm);
+    padding-inline: var(--sticker-padding-inline-sm);
+    font-size: var(--sticker-font-size-sm);
+  }
+
+  &--lg {
+    padding-block: var(--sticker-padding-block-lg);
+    padding-inline: var(--sticker-padding-inline-lg);
+    font-size: var(--sticker-font-size-lg);
+  }
+
+  &--onsale {
+    --sticker-background: var(--color-sale-tag);
+    --sticker-foreground: var(--color-sale-tag-text);
+  }
+
+  &--highlight {
+    --sticker-background: rgb(var(--color-sale-tag-rgb) / 0.1);
+    --sticker-foreground: var(--color-sale-tag);
+  }
+}
+
+.sticker:not(a[href]):not([role="button"]) {
+  cursor: default;
+}
