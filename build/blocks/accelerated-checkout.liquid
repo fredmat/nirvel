@@ -16,12 +16,8 @@
   endif
 %}
 
-{% comment %}
-  {% if block.settings.style_class == 'secondary' %} accelerated-checkout-block--button-secondary{% endif %}
-{% endcomment %}
-
 <div
-  class="accelerated-checkout-block"
+  class="accelerated-checkout-block{% if block.settings.style_class == 'secondary' %} accelerated-checkout-block--secondary{% endif %}"
   ref="acceleratedCheckoutButtonContainer"
   {{ block.shopify_attributes }}
   {% if request.visual_preview_mode %}
@@ -82,30 +78,3 @@
   ]
 }
 {% endschema %}
-
-{% comment %}
-{% schema %}
-{
-  "name": "t:names.accelerated_checkout",
-  "tag": null,
-  "settings": [
-    {
-      "type": "select",
-      "id": "style_class",
-      "label": "t:settings.style",
-      "options": [
-        {
-          "value": "default",
-          "label": "t:options.primary"
-        },
-        {
-          "value": "secondary",
-          "label": "t:options.secondary"
-        }
-      ],
-      "default": "secondary"
-    }
-  ]
-}
-{% endschema %}
-{% endcomment %}
