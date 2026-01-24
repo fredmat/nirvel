@@ -194,7 +194,7 @@
                     "link": "",
                     "open_in_new_tab": false,
                     "placeholder": "",
-                    "padding-block-start": 10,
+                    "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
@@ -234,28 +234,29 @@
                 "group_VLhm9G"
               ]
             },
-            "product_inventory_fXNtxi": {
-              "type": "product-inventory",
-              "name": "t:names.product_inventory",
+            "product_description_VzGmdq": {
+              "type": "product-description",
+              "name": "t:names.product_description",
               "settings": {
-                "inventory_threshold": 37,
-                "show_inventory_quantity": false,
+                "text": "<p>{{ closest.product.description }}</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "divider_VJhene": {
-              "type": "_divider",
-              "name": "t:names.divider",
-              "settings": {
-                "thickness": 1,
-                "corner_radius": "square",
-                "width_percent": 100,
-                "padding-block-start": 0,
-                "padding-block-end": 0
               },
               "blocks": {}
             },
@@ -265,6 +266,19 @@
                 "variant_style": "buttons",
                 "show_swatches": true,
                 "alignment": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_inventory_fXNtxi": {
+              "type": "product-inventory",
+              "name": "t:names.product_inventory",
+              "settings": {
+                "inventory_threshold": 37,
+                "show_inventory_quantity": false,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -475,6 +489,7 @@
                 "accordion_row_h4tXe7": {
                   "type": "_accordion-row",
                   "name": "Description",
+                  "disabled": true,
                   "settings": {
                     "heading": "Description",
                     "case": "uppercase",
@@ -524,9 +539,9 @@
           },
           "block_order": [
             "group_icgrde",
-            "product_inventory_fXNtxi",
-            "divider_VJhene",
+            "product_description_VzGmdq",
             "variant_picker_R3rGDr",
+            "product_inventory_fXNtxi",
             "buy_buttons_eYQEYi",
             "accordion_QNjt8E"
           ]
