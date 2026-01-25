@@ -9,6 +9,17 @@ export default {
     emptyOutDir: false,
     minify: process.env.THEME_ENV === 'production',
   },
+  // server: {
+  //   cors: {
+  //     origin: [
+  //       /^https?:\/\/(?:(?:[^:]+\.)?localhost|127\.0\.0\.1|\[::1\])(?::\d+)?$/,
+  //       'https://127.0.0.1:9292',
+  //       'http://127.0.0.1:9292',
+  //       'https://lumalumen.myshopify.com/',
+  //       'https://lumalumen.myshopify.com',
+  //     ]
+  //   }
+  // },
   plugins: [
     cleanViteShopifyAssets(),
     shopify({
