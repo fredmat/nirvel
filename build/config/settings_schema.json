@@ -1509,85 +1509,6 @@
     ]
   },
   {
-    "name": "t:names.stickers",
-    "settings": [
-      {
-        "type": "range",
-        "id": "sticker_border_radius",
-        "min": 0,
-        "max": 100,
-        "step": 2,
-        "unit": "px",
-        "label": "t:settings.corner_radius",
-        "default": 40
-      },
-      {
-        "type": "header",
-        "content": "t:content.typography"
-      },
-      {
-        "type": "select",
-        "id": "sticker_font",
-        "label": "t:settings.font",
-        "options": [
-          {
-            "value": "body",
-            "label": "t:options.body"
-          },
-          {
-            "value": "subheading",
-            "label": "t:options.subheading"
-          },
-          {
-            "value": "heading",
-            "label": "t:options.heading"
-          },
-          {
-            "value": "accent",
-            "label": "t:options.accent"
-          }
-        ],
-        "default": "body"
-      },
-      {
-        "type": "select",
-        "id": "sticker_letter_spacing",
-        "label": "t:settings.letter_spacing",
-        "options": [
-          {
-            "value": "tight",
-            "label": "t:options.tight"
-          },
-          {
-            "value": "normal",
-            "label": "t:options.normal"
-          },
-          {
-            "value": "loose",
-            "label": "t:options.loose"
-          }
-        ],
-        "default": "normal"
-      },
-      {
-        "type": "select",
-        "id": "sticker_text_case",
-        "label": "t:settings.text_case",
-        "options": [
-          {
-            "value": "none",
-            "label": "t:options.default"
-          },
-          {
-            "value": "uppercase",
-            "label": "t:options.uppercase"
-          }
-        ],
-        "default": "none"
-      }
-    ]
-  },
-  {
     "name": "t:names.badges",
     "settings": [
       {
@@ -2442,6 +2363,85 @@
           }
         ],
         "default": "default"
+      }
+    ]
+  },
+  {
+    "name": "t:names.stickers",
+    "settings": [
+      {
+        "type": "range",
+        "id": "sticker_border_radius",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings.corner_radius",
+        "default": 40
+      },
+      {
+        "type": "header",
+        "content": "t:content.typography"
+      },
+      {
+        "type": "select",
+        "id": "sticker_font",
+        "label": "t:settings.font",
+        "options": [
+          {
+            "value": "body",
+            "label": "t:options.body"
+          },
+          {
+            "value": "subheading",
+            "label": "t:options.subheading"
+          },
+          {
+            "value": "heading",
+            "label": "t:options.heading"
+          },
+          {
+            "value": "accent",
+            "label": "t:options.accent"
+          }
+        ],
+        "default": "body"
+      },
+      {
+        "type": "select",
+        "id": "sticker_letter_spacing",
+        "label": "t:settings.letter_spacing",
+        "options": [
+          {
+            "value": "tight",
+            "label": "t:options.tight"
+          },
+          {
+            "value": "normal",
+            "label": "t:options.normal"
+          },
+          {
+            "value": "loose",
+            "label": "t:options.loose"
+          }
+        ],
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "sticker_text_case",
+        "label": "t:settings.text_case",
+        "options": [
+          {
+            "value": "none",
+            "label": "t:options.default"
+          },
+          {
+            "value": "uppercase",
+            "label": "t:options.uppercase"
+          }
+        ],
+        "default": "none"
       }
     ]
   },

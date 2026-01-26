@@ -3,10 +3,21 @@
 
   @param {object} product_resource - The product object, which contains variants and options.
   @param {boolean} [has_option_selected] - Whether an option is already selected.
+  @param {number} [show_max_items] - Maximum number of swatches to display before triggering the overflow behavior.
 
   @example
-  {% render 'variant-swatches', product_resource: product %}
+  {% render 'variant-swatches', product_resource: product, show_max_items: int %}
 {%- enddoc -%}
+
+{%- liquid
+  assign show_max_items_value = show_max_items | default: 4 | plus: 0
+
+  if show_max_items_value < 2
+    assign show_max_items_value = 2
+  elsif show_max_items_value > 6
+    assign show_max_items_value = 6
+  endif
+-%}
 
 <swatches-variant-picker-component
   data-product-id="{{ product_resource.id }}"

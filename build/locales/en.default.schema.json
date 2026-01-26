@@ -775,6 +775,7 @@
     "link_case": "Link case",
     "inherit_global_badge_settings": "Inherit global badge settings",
     "make_element_focusable": "Make this element focusable",
+    "maximum_swatches_to_show": "Maximum swatches to show",
     "meta": "Meta",
     "metafields": "Metafields",
     "price_color": "Price",
@@ -796,6 +797,7 @@
     "show_vendor": "Show vendor",
     "show_sale_price_first_default": "Show sale price first by default",
     "vendor_title_case": "Vendor title case",
+
 
 
 
