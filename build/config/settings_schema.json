@@ -373,6 +373,52 @@
         "label": "t:settings.sale_tag_text_color",
         "default": "#FFFFFF",
         "alpha": false
+      },
+      {
+        "type": "header",
+        "content": "t:content.product_inventory"
+      },
+      {
+        "type": "color",
+        "id": "color_instock_background",
+        "label": "color_instock_background",
+        "default": "#F7FEE7",
+        "alpha": false
+      },
+      {
+        "type": "color",
+        "id": "color_instock_text",
+        "label": "color_instock_text",
+        "default": "#4D7C0F",
+        "alpha": false
+      },
+      {
+        "type": "color",
+        "id": "color_outofstock_background",
+        "label": "color_outofstock_background",
+        "default": "#FFF1F2",
+        "alpha": false
+      },
+      {
+        "type": "color",
+        "id": "color_outofstock_text",
+        "label": "color_outofstock_text",
+        "default": "#E11D48",
+        "alpha": false
+      },
+      {
+        "type": "color",
+        "id": "color_lowstock_background",
+        "label": "color_lowstock_background",
+        "default": "#FFFBEB",
+        "alpha": false
+      },
+      {
+        "type": "color",
+        "id": "color_lowstock_text",
+        "label": "color_lowstock_text",
+        "default": "#EE9441",
+        "alpha": false
       }
     ]
   },

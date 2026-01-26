@@ -50,10 +50,10 @@
   data-product-id="{{ product.id }}"
 >
   <span
-    class="product-inventory__status"
+    class="product-inventory__status product-inventory__status-{{ status }}"
   >
     <span
-      class="svg-wrapper product-inventory__icon product-inventory__icon-{{ status }}"
+      class="svg-wrapper product-inventory__icon"
     >
       {{ 'icon-inventory.svg' | inline_asset_content }}
     </span>
@@ -74,29 +74,37 @@
 
 {% stylesheet %}
   .product-inventory__status {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    font-size: var(--font-paragraph--size);
-    line-height: var(--font-paragraph--line-height);
+    font-size: var(--font-size--xs);
+    font-weight: var(--font-body--weight);
+    line-height: var(--line-height);
     gap: var(--padding-xs);
+    padding-block: var(--padding-md);
+    padding-inline: var(--padding-lg);
+    border-radius: var(--style-border-radius-pills);
+    background-color: transparent;
+  }
+
+  .product-inventory__status-low {
+    color: var(--color-lowstock-text);
+    background-color: var(--color-lowstock-background);
+  }
+
+  .product-inventory__status-in_stock {
+    color: var(--color-instock-text);
+    background-color: var(--color-instock-background);
+  }
+
+  .product-inventory__status-out_of_stock {
+    color: var(--color-outofstock-text);
+    background-color: var(--color-outofstock-background);
   }
 
   .product-inventory__icon,
   .product-inventory__icon svg {
     width: var(--icon-size-sm);
     height: var(--icon-size-sm);
-  }
-
-  .product-inventory__icon-low {
-    color: var(--color-lowstock);
-  }
-
-  .product-inventory__icon-in_stock {
-    color: var(--color-instock);
-  }
-
-  .product-inventory__icon-out_of_stock {
-    color: var(--color-outofstock);
   }
 
   .product-inventory__icon circle:first-of-type {

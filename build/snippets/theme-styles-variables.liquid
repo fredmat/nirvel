@@ -309,9 +309,6 @@
     --color-white: #FFFFFF;
     --color-white-rgb: 255 255 255;
     --color-black: #000000;
-    --color-instock: #3ED660;
-    --color-lowstock: #EE9441;
-    --color-outofstock: #C8C8C8;
 
     /* Opacity */
     --opacity-5: 0.05;
@@ -581,6 +578,21 @@
     --color-sale-tag-rgb: {{ settings.sale_tags_color.rgb }};
     --color-sale-tag-text: rgb({{ settings.sale_tag_text_color.rgba }});
     --color-sale-tag-text-rgb: {{ settings.sale_tag_text_color.rgb }};
+
+    --color-instock-background: rgb({{ settings.color_instock_background.rgba }});
+    --color-instock-background-rgb: {{ settings.color_instock_background.rgb }};
+    --color-instock-text: rgb({{ settings.color_instock_text.rgba }});
+    --color-instock-text-rgb: {{ settings.color_instock_text.rgb }};
+
+    --color-outofstock-background: rgb({{ settings.color_outofstock_background.rgba }});
+    --color-outofstock-background-rgb: {{ settings.color_outofstock_background.rgb }};
+    --color-outofstock-text: rgb({{ settings.color_outofstock_text.rgba }});
+    --color-outofstock-text-rgb: {{ settings.color_outofstock_text.rgb }};
+
+    --color-lowstock-background: rgb({{ settings.color_lowstock_background.rgba }});
+    --color-lowstock-background-rgb: {{ settings.color_lowstock_background.rgb }};
+    --color-lowstock-text: rgb({{ settings.color_lowstock_text.rgba }});
+    --color-lowstock-text-rgb: {{ settings.color_lowstock_text.rgb }};
 
     /* Stickers */
     --sticker-background: rgba(var(--color-foreground-rgb) / 0.08);
