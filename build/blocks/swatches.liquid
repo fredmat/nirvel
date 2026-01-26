@@ -25,10 +25,7 @@
     "
     {{ block.shopify_attributes }}
   >
-    {% render 'variant-swatches',
-      product_resource: closest.product,
-      show_max_items: block_settings.product_swatches_max_items
-    %}
+    {% render 'variant-swatches', product_resource: closest.product %}
   </product-swatches>
 {% endif %}
 
@@ -108,15 +105,6 @@
     {
       "type": "paragraph",
       "content": "t:content.resource_reference_product_swatches"
-    },
-    {
-      "type": "range",
-      "id": "product_swatches_max_items",
-      "label": "t:settings.maximum_swatches_to_show",
-      "min": 1,
-      "max": 6,
-      "step": 1,
-      "default": 4,
     },
     {
       "type": "select",
