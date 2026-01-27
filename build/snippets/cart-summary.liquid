@@ -112,7 +112,10 @@
     {% endif %}
     form="cart-form"
   >
-    {{ 'content.checkout' | t }}
+    <span class="svg-wrapper cart__checkout-button-icon">
+      {{ 'icon-checkout.svg' | inline_asset_content }}
+    </span>
+    <span class="">{{ 'content.checkout' | t }}</span>
   </button>
 
   {% if has_view_cart %}

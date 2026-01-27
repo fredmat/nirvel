@@ -740,9 +740,17 @@
   }
 
   .cart__ctas .cart__checkout-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-xs);
     width: 100%;
     height: clamp(25px, var(--height-buy-buttons), 55px);
     padding-inline: var(--padding-4xl);
+  }
+
+  .cart__ctas .cart__checkout-button-icon {
+    
   }
 
   .cart__ctas--multiple {

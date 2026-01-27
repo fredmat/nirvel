@@ -209,7 +209,6 @@
               "type": "swatches",
               "name": "t:names.swatches",
               "settings": {
-                "product_swatches_max_items": 4,
                 "product_swatches_alignment": "flex-start",
                 "product_swatches_alignment_mobile": "flex-start",
                 "hide_padding": false,
