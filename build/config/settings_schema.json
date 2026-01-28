@@ -2014,6 +2014,29 @@
     ]
   },
   {
+    "name": "t:names.free_shipping_bar",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "t:content.enable_free_shipping_bar_alert"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_free_shipping_bar",
+        "label": "t:settings.enable_free_shipping_bar",
+        "default": false
+      },
+      {
+        "type": "number",
+        "id": "free_shipping_minimum",
+        "label": "t:settings.free_shipping_minimum",
+        "info": "t:info.free_shipping_minimum",
+        "default": 0,
+        "visible_if": "{{ settings.enable_free_shipping_bar == true }}"
+      }
+    ]
+  },
+  {
     "name": "t:names.drawers",
     "settings": [
       {

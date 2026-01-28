@@ -1,0 +1,70 @@
+{% assign free_shipping_active = shop.metafields.shipping.free_shipping_global.value %}
+
+{% if free_shipping_active and settings.enable_free_shipping_bar and cart.total_price > 0 %}
+  {% assign free_shipping_minimum = settings.free_shipping_minimum %}
+  {% assign cart_total = cart.total_price %}
+
+  {% assign remaining = free_shipping_minimum | minus: cart_total %}
+  {% if remaining < 0 %}
+    {% assign remaining = 0 %}
+  {% endif %}
+
+  {% assign remaining_money = remaining | money %}
+
+  {%- comment -%}
+    Calculate progress toward free shipping.
+    Liquid does integer math, so we calculate a percentage first,
+    then convert it to a CSS-friendly ratio (0 → 1).
+  {%- endcomment -%}
+
+  {% assign progress_percent = cart_total | times: 100 | divided_by: free_shipping_minimum %}
+  {% if progress_percent > 100 %}
+    {% assign progress_percent = 100 %}
+  {% endif %}
+
+  {% assign progress_ratio = progress_percent | divided_by: 100.0 %}
+
+  <div class="free-shipping-bar">
+    <span class="free-shipping-bar__label">
+      {% if remaining == 0 %}
+        {{ 'content.free_shipping_bar.free_shipping_reached' | t }}
+      {% else %}
+        {{ 'content.free_shipping_bar.free_shipping_remaining_html' | t: amount: remaining_money }}
+      {% endif %}
+    </span>
+    <progress-bar style="--progress: {{ progress_ratio }};"></progress-bar>
+  </div>
+
+{% endif %}
+
+{% stylesheet %}
+  .free-shipping-bar {
+    display: grid;
+    gap: var(--gap-xs);
+    width: 100%;
+    margin-block-end: 2.25rem;
+  }
+
+  .free-shipping-bar__label {
+    font-size: var(--font-size--xs);
+    line-height: var(--line-height--body-normal);
+  }
+
+  .free-shipping-bar progress-bar {
+    height: var(--gap-2xs);
+    background-color: rgb(var(--color-foreground-rgb) / 0.1);
+    overflow: hidden;
+    border-radius: calc(var(--gap-2xs) / 2);
+
+    &::before {
+      content: "";
+      background-color: currentColor;
+      border-radius: inherit;
+      display: block;
+      height: inherit;
+      transform: scaleX(var(--progress));
+      transform-origin: left;
+      transition: transform .7s cubic-bezier(.7, 0, .3, 1) .1s;
+    }
+  }
+{% endstylesheet %}

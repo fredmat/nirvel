@@ -173,6 +173,17 @@
     }
   },
   "content": {
+    "free_shipping_bar": {
+      "free_shipping_reached": "You are eligible for free shipping.",
+      "free_shipping_remaining_html": "Spend <span class=\"font-bold\">{{ amount }}</span> more to reach free shipping!"
+    },
+
+
+
+
+
+
+
     "discount": "Discount",
     "account_title": "Account",
     "badge_text_save_dynamic": "Save {{ value }}",
