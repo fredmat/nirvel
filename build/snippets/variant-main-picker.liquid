@@ -70,7 +70,7 @@
                     variant-option__swatch-label
                   {% endif %}
                 "
-              >{{ product_option.name | escape -}}</span>
+              >{{ product_option.name | escape -}}{%- if variant_style == 'swatch' -%}:{% endif %}</span>
               {%- if variant_style == 'swatch' -%}
                 <span class="variant-option__swatch-value">{{ product_option.selected_value }}</span>
               {%- endif %}
@@ -271,7 +271,7 @@
 
   .variant-option__swatch-label,
   .variant-option__swatch-value {
-    font-size: var(--font-size--xs);
+    font-size: var(--font-size--sm);
   }
 
   .variant-option__swatch-value {

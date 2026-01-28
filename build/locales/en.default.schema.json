@@ -775,6 +775,7 @@
   },
   "settings": {
     "background_opacity": "Background opacity",
+    "badge_style": "Badge style",
     "custom_savings_text": "Custom savings text",
     "button_text": "Button text",
     "cart_drawer_hide_remove_button": "Hide remove button",

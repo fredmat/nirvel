@@ -50,7 +50,13 @@
   data-product-id="{{ product.id }}"
 >
   <span
-    class="product-inventory__status product-inventory__status-{{ status }}"
+    class="
+      product-inventory__status
+      product-inventory__status-{{ status }}
+      {% if block_settings.badge_style %}
+        product-inventory__status-badge
+      {% endif %}
+    "
   >
     <span
       class="svg-wrapper product-inventory__icon"
@@ -76,29 +82,41 @@
   .product-inventory__status {
     display: inline-flex;
     align-items: center;
+    gap: var(--padding-xs);
     font-size: var(--font-size--xs);
     font-weight: var(--font-body--weight);
     line-height: var(--line-height);
-    gap: var(--padding-xs);
-    padding-block: var(--padding-md);
-    padding-inline: var(--padding-lg);
-    border-radius: var(--style-border-radius-pills);
+    padding: 0;
+    border-radius: 0;
     background-color: transparent;
   }
 
   .product-inventory__status-low {
-    color: var(--color-lowstock-text);
-    background-color: var(--color-lowstock-background);
+    --inventory-text-color: var(--color-lowstock-text);
+    --inventory-bg-color: var(--color-lowstock-background);
   }
 
   .product-inventory__status-in_stock {
-    color: var(--color-instock-text);
-    background-color: var(--color-instock-background);
+    --inventory-text-color: var(--color-instock-text);
+    --inventory-bg-color: var(--color-instock-background);
   }
 
   .product-inventory__status-out_of_stock {
-    color: var(--color-outofstock-text);
-    background-color: var(--color-outofstock-background);
+    --inventory-text-color: var(--color-outofstock-text);
+    --inventory-bg-color: var(--color-outofstock-background);
+  }
+
+  .product-inventory__status-badge {
+    padding-block: var(--padding-md);
+    padding-inline: var(--padding-lg);
+    border-radius: var(--style-border-radius-pills);
+    color: var(--inventory-text-color);
+    background-color: var(--inventory-bg-color);
+  }
+
+  .product-inventory__icon {
+    color: var(--inventory-text-color);
+    background-color: var(--inventory-bg-color);
   }
 
   .product-inventory__icon,
@@ -135,6 +153,12 @@
       "id": "show_inventory_quantity",
       "label": "t:settings.show_inventory_quantity",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "badge_style",
+      "label": "t:settings.badge_style",
+      "default": false
     },
     {
       "type": "header",
