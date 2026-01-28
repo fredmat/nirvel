@@ -16,12 +16,12 @@
           "type": "_cart-title",
           "static": true,
           "settings": {
-            "title": "Cart",
+            "title": "Your cart",
             "show_count": true,
-            "type_preset": "h3",
+            "type_preset": "h2",
             "alignment": "left",
             "padding-block-start": 0,
-            "padding-block-end": 0,
+            "padding-block-end": 18,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
@@ -31,9 +31,9 @@
           "type": "_cart-products",
           "static": true,
           "settings": {
-            "gap": 24,
+            "gap": 36,
             "image_ratio": "square",
-            "dividers": true,
+            "dividers": false,
             "vendor": false,
             "show_account_link": false,
             "type_preset": "",

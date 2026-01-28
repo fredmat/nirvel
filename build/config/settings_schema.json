@@ -1829,7 +1829,7 @@
       {
         "type": "select",
         "id": "cart_vendor_title_case",
-        "label": "t:settings.cart_vendor_title_case",
+        "label": "t:settings.vendor_title_case",
         "options": [
           {
             "value": "default",

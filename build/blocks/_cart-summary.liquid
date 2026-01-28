@@ -21,7 +21,9 @@
 >
   <div class="{{ cart_summary_inner_class }}">
     {% if settings.show_cart_free_shipping_bar %}
-      {% render 'free-shipping-bar' %}
+      <div class="cart__summary-free-shipping-bar">
+        {% render 'free-shipping-bar' %}
+      </div>
     {% endif %}
     {% render 'cart-summary', accelerated_checkout_buttons_layout: 'vertical' %}
   </div>
@@ -82,7 +84,9 @@
 
   .cart__summary-container {
     @media screen and (max-width: 749px) {
-      border: none;
+      border-inline: 0;
+      border-block-end: 0;
+      border-radius: 0;
     }
 
     @media screen and (min-width: 750px) {
@@ -161,6 +165,18 @@
       --color-input-text: inherit;
       --color-input-text-rgb: inherit;
       --color-input-background: inherit;
+    }
+  }
+
+  .cart__summary-free-shipping-bar {
+    width: 100%;
+  }
+
+  .cart__summary-free-shipping-bar .free-shipping-bar {
+    margin-block-end: 0;
+
+    @media screen and (max-width: 749px) {
+      margin-block-start: var(--gap-2xl);
     }
   }
 {% endstylesheet %}
