@@ -174,7 +174,7 @@
   },
   "content": {
     "free_shipping_bar": {
-      "free_shipping_reached": "You are eligible for free shipping.",
+      "free_shipping_reached": "You are eligible for free shipping!",
       "free_shipping_remaining_html": "Spend <span class=\"font-bold\">{{ amount }}</span> more to reach free shipping!"
     },
 
@@ -221,8 +221,8 @@
       "zoom_out": "Zoom out"
     },
     "inventory_low_stock_show_count": {
-      "one": "{{ count }} left",
-      "other": "{{ count }} left"
+      "one": "Hurry, only {{ count }} left in stock!",
+      "other": "Hurry, only {{ count }} left in stock!"
     },
     "inventory_low_stock": "Low stock",
     "inventory_in_stock": "In stock",

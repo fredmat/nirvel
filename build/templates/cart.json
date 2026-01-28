@@ -17,7 +17,7 @@
           "static": true,
           "settings": {
             "title": "Your cart",
-            "show_count": true,
+            "show_count": false,
             "type_preset": "h2",
             "alignment": "left",
             "padding-block-start": 0,
