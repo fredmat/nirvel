@@ -37,7 +37,6 @@
     "product_inventory": "Product inventory",
     "savings_display": "Savings display",
 
-    "enable_free_shipping_bar_alert": "The free shipping bar will only be shown if free shipping is enabled as a discount on all products and available for all regions.",
     
 
 
@@ -209,8 +208,8 @@
   "info": {
     "badge_text_savings_info": "Use %value% as a placeholder for the savings value (percentage or amount).",
 
-    "free_shipping_minimum": "Set the minimum cart amount (in cents) required to reach free shipping.",
-
+    "enable_free_shipping_bar_alert": "These settings must match your active \"Free shipping\" discount configuration.",
+    "free_shipping_bar_minimum": "Set the minimum cart amount (in cents) required to reach free shipping.",
 
 
 
@@ -796,6 +795,8 @@
     "secondary_background": "Secondary background",
     "secondary_text": "Secondary text",
     "show_account_link": "Show account link",
+    "show_cart_free_shipping_bar": "Show in cart",
+    "show_cart_drawer_free_shipping_bar": "Show in cart drawer",
     "show_rank_number": "Show rank number",
     "show_rank_number_until": "Show rank number until",
     "show_savings": "Show savings",
@@ -810,8 +811,8 @@
     "vendor_title_case": "Vendor title case",
 
 
-    "enable_free_shipping_bar": "Enable Free shipping bar",
-    "free_shipping_minimum": "Minimum Cart Amount for Free Shipping",
+    "enable_free_shipping_bar": "Enable free shipping bar",
+    "free_shipping_bar_minimum": "Minimum cart amount",
 
 
 
