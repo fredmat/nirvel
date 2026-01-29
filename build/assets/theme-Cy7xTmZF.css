@@ -17,7 +17,7 @@
   white-space: nowrap;
 }
 .price-wrapper .price {
-  color: var(--color-price);
+  color: var(--color-foreground);
 }
 .price-wrapper .unit-price {
   font-size: min(0.85em, var(--font-paragraph--size));
@@ -32,7 +32,7 @@
   align-items: center;
   height: auto;
   text-decoration: none;
-  color: rgb(var(--color-price-rgb)/var(--opacity-subdued-text));
+  color: rgb(var(--color-foreground-rgb)/var(--opacity-subdued-text));
 }
 .price-wrapper--on-sale .compare-at-price::before {
   content: "";

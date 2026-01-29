@@ -10,7 +10,7 @@
   }
 
   .price {
-    color: var(--color-price);
+    color: var(--color-foreground);
   }
 
   .unit-price {
@@ -30,7 +30,8 @@
       align-items: center;
       height: auto;
       text-decoration: none;
-      color: rgb(var(--color-price-rgb) / var(--opacity-subdued-text));
+      // color: rgb(var(--color-price-rgb) / var(--opacity-subdued-text));
+      color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
 
       &::before {
         content: '';
