@@ -390,8 +390,6 @@
     --style-border-radius-lg: 1rem;
     --style-border-radius-pills: {{ settings.pills_border_radius }}px;
     --style-border-radius-inputs: {{ settings.inputs_border_radius }}px;
-    --style-border-radius-buttons-primary: {{ settings.button_border_radius_primary }}px;
-    --style-border-radius-buttons-secondary: {{ settings.button_border_radius_secondary }}px;
     --style-border-width-primary: {{ settings.primary_button_border_width }}px;
     --style-border-width-secondary: {{ settings.secondary_button_border_width }}px;
     --style-border-width-inputs: {{ settings.input_border_width }}px;
@@ -401,6 +399,20 @@
     --style-border-swatch-opacity: {{ settings.variant_swatch_border_opacity }}%;
     --style-border-swatch-width: {{ settings.variant_swatch_border_width }}px;
     --style-border-swatch-style: {{ settings.variant_swatch_border_style }};
+
+    /* Base (md) – existant */
+    --style-border-radius-buttons-primary: {{ settings.button_border_radius_primary }}px;
+    --style-border-radius-buttons-secondary: {{ settings.button_border_radius_secondary }}px;
+
+    /* Size-specific radius (px) */
+    --button-border-radius-xs: {{ settings.button_border_radius_xs }}px;
+    --button-border-radius-sm: {{ settings.button_border_radius_sm }}px;
+    --button-border-radius-lg: {{ settings.button_border_radius_lg }}px;
+    --button-border-radius-xl: {{ settings.button_border_radius_xl }}px;
+
+    /* Contextual (default = md) */
+    --button-border-radius-primary: var(--style-border-radius-buttons-primary);
+    --button-border-radius-secondary: var(--style-border-radius-buttons-secondary);
 
     /* Animation */
     --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
@@ -460,15 +472,23 @@
     --button-size-sm: 30px;
     --button-size-md: 36px;
     --button-size: var(--minimum-touch-target);
-    --button-padding-inline: 24px;
     --button-padding-block: 16px;
+    --button-padding-inline: 24px;
+    --button-padding-block-sm: 8px;
+    --button-padding-inline-sm: 14px;
+    --button-padding-block-lg: 20px;
+    --button-padding-inline-lg: 32px;
 
     /* Button font-family */
     --button-font-family-primary: var(--font-{{ settings.type_font_button_primary }}--family);
     --button-font-family-secondary: var(--font-{{ settings.type_font_button_secondary }}--family);
 
+    /* Button font-weight */
+    --button-font-weight-primary: var(--font-{{ settings.type_font_button_primary }}--weight);
+    --button-font-weight-secondary: var(--font-{{ settings.type_font_button_secondary }}--weight);
+
     /* Button text case */
-    --button-text-case: {{ settings.button_text_case }};
+    /*--button-text-case: {{ settings.button_text_case }};*/
     --button-text-case-primary: {{ settings.button_text_case_primary }};
     --button-text-case-secondary: {{ settings.button_text_case_secondary }};
 

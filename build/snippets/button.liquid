@@ -20,6 +20,9 @@
   class="
     size-style
     {{ block_settings.style_class }}
+    {% if block_settings.size_class != 'default' %}
+      button--{{ block_settings.size_class }}
+    {% endif %}
     {{ block_settings.style_class }}--{{ block.id }}
   "
   style="{% render 'size-style', settings: block_settings %}"

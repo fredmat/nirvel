@@ -1691,13 +1691,20 @@
             "label": "t:options.body"
           },
           {
+            "value": "subheading",
+            "label": "t:options.subheading"
+          },
+          {
+            "value": "heading",
+            "label": "t:options.heading"
+          },
+          {
             "value": "accent",
             "label": "t:options.accent"
           }
         ],
         "default": "body"
       },
-
       {
         "type": "select",
         "id": "button_text_case_primary",
@@ -1748,6 +1755,14 @@
             "label": "t:options.body"
           },
           {
+            "value": "subheading",
+            "label": "t:options.subheading"
+          },
+          {
+            "value": "heading",
+            "label": "t:options.heading"
+          },
+          {
             "value": "accent",
             "label": "t:options.accent"
           }
@@ -1788,6 +1803,30 @@
         "step": 1,
         "unit": "px",
         "default": 40
+      },
+      {
+        "type": "header",
+        "content": "t:content.border_radius"
+      },
+      {
+        "type": "range",
+        "id": "button_border_radius_sm",
+        "label": "t:settings.small",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "default": 100
+      },
+      {
+        "type": "range",
+        "id": "button_border_radius_lg",
+        "label": "t:settings.large",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "default": 100
       }
     ]
   },

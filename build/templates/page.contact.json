@@ -160,7 +160,7 @@
               "static": true,
               "settings": {
                 "label": "Send message",
-                "style_class": "button-secondary",
+                "style_class": "button",
                 "width": "fit-content",
                 "custom_width": 37,
                 "width_mobile": "custom",
@@ -307,6 +307,7 @@
                 "link": "shopify://pages/faq",
                 "open_in_new_tab": false,
                 "style_class": "button",
+                "size_class": "sm",
                 "width": "fit-content",
                 "custom_width": 15,
                 "width_mobile": "fit-content",

@@ -17,7 +17,7 @@
 %}
 
 <div
-  class="accelerated-checkout-block{% if block.settings.style_class == 'secondary' %} accelerated-checkout-block--secondary{% endif %}"
+  class="accelerated-checkout-block{% if block.settings.style_class == 'secondary' %} accelerated-checkout-block--button-secondary{% endif %}"
   ref="acceleratedCheckoutButtonContainer"
   {{ block.shopify_attributes }}
   {% if request.visual_preview_mode %}

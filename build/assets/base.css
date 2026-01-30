@@ -1310,8 +1310,9 @@ button.shopify-payment-button__button--unbranded {
 
 .button {
   font-family: var(--button-font-family-primary);
+  font-weight: var(--button-font-weight-primary);
   text-transform: var(--button-text-case-primary);
-  border-radius: var(--style-border-radius-buttons-primary);
+  border-radius: var(--button-border-radius-primary);
 }
 
 .button:not(.button-secondary, .button-unstyled) {
@@ -1320,13 +1321,21 @@ button.shopify-payment-button__button--unbranded {
 
 .button-secondary {
   font-family: var(--button-font-family-secondary);
+  font-weight: var(--button-font-weight-secondary);
   text-transform: var(--button-text-case-secondary);
-  border-radius: var(--style-border-radius-buttons-secondary);
+  border-radius: var(--button-border-radius-secondary);
 }
 
 button.shopify-payment-button__button--unbranded {
   font-family: var(--button-font-family-primary);
+  font-weight: var(--button-font-weight-primary);
   text-transform: var(--button-text-case-primary);
+}
+
+.accelerated-checkout-block--button-secondary button.shopify-payment-button__button--unbranded {
+  font-family: var(--button-font-family-secondary);
+  font-weight: var(--button-font-weight-secondary);
+  text-transform: var(--button-text-case-secondary);
 }
 
 textarea,
@@ -1372,27 +1381,16 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   --button-border-color: var(--color-primary-button-hover-border);
 }
 
-.button-secondary {
+.button-secondary,
+.accelerated-checkout-block--button-secondary button.shopify-payment-button__button--unbranded {
   --button-color: var(--color-secondary-button-text);
   --button-background-color: var(--color-secondary-button-background);
   --button-border-color: var(--color-secondary-button-border);
   --button-border-width: var(--style-border-width-secondary);
 }
 
-.button-secondary:hover {
-  --button-color: var(--color-secondary-button-hover-text);
-  --button-background-color: var(--color-secondary-button-hover-background);
-  --button-border-color: var(--color-secondary-button-hover-border);
-}
-
-.accelerated-checkout-block--secondary button.shopify-payment-button__button--unbranded {
-  --button-color: var(--color-secondary-button-text);
-  --button-background-color: var(--color-secondary-button-background);
-  --button-border-color: var(--color-secondary-button-border);
-  --button-border-width: var(--style-border-width-secondary);
-}
-
-.accelerated-checkout-block--secondary button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
+.button-secondary:hover,
+.accelerated-checkout-block--button-secondary button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   --button-color: var(--color-secondary-button-hover-text);
   --button-background-color: var(--color-secondary-button-hover-background);
   --button-border-color: var(--color-secondary-button-hover-border);
@@ -1404,8 +1402,22 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
 }
 
 /* Button sizes */
-.button-small {
-  
+.button--sm {
+  --button-padding-inline: var(--button-padding-inline-sm);
+  --button-padding-block: var(--button-padding-block-sm);
+  --button-border-radius-primary: var(--button-border-radius-sm);
+  --button-border-radius-secondary: var(--button-border-radius-sm);
+
+  font-size: var(--font-size--xs);
+}
+
+.button--lg {
+  --button-padding-inline: var(--button-padding-inline-lg);
+  --button-padding-block: var(--button-padding-block-lg);
+  --button-border-radius-primary: var(--button-border-radius-lg);
+  --button-border-radius-secondary: var(--button-border-radius-lg);
+
+  font-size: var(--font-size--lg);
 }
 
 /* Button unstyled */

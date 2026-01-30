@@ -32,6 +32,7 @@
     "text": "Text"
   },
   "content": {
+    "border_radius": "Border radius",
     "empty_cart": "Empty cart",
     "mobile_padding": "Mobile padding",
     "product_inventory": "Product inventory",
