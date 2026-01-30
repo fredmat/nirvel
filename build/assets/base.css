@@ -1403,6 +1403,12 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   background-color: var(--button-background-color);
 }
 
+/* Button sizes */
+.button-small {
+  
+}
+
+/* Button unstyled */
 .button-unstyled {
   display: block;
   padding: 0;
