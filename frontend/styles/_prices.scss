@@ -13,15 +13,22 @@
     color: var(--color-foreground);
   }
 
+  // .unit-price {
+  //   // display: block;
+  //   font-size: min(0.85em, var(--font-paragraph--size));
+  //   color: rgb(var(--color-price-rgb) / var(--opacity-subdued-text));
+  // }
+
   .unit-price {
-    // display: block;
+    display: block;
     font-size: min(0.85em, var(--font-paragraph--size));
-    color: rgb(var(--color-price-rgb) / var(--opacity-subdued-text));
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
   }
 
   &--on-sale {
     .price {
       color: var(--color-sale-price);
+      // font-weight: var(--font-accent--weight);
     }
 
     .compare-at-price {
@@ -45,16 +52,13 @@
   }
 }
 
-// .tax-note.tax-note.tax-note {
-//   font-size: min(0.85em, var(--font-paragraph--size));
-//   color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
-// }
+.tax-note.tax-note.tax-note {
+  font-size: min(0.85em, var(--font-paragraph--size));
+  font-weight: var(--font-paragraph--weight);
+  letter-spacing: var(--font-paragraph--letter-spacing);
+  color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+}
 
 product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   margin-block: 0;
 }
-
-// // product-price.text-block .tax-note,
-// // product-price.text-block .unit-price {
-// //   font-weight: 400;
-// // }

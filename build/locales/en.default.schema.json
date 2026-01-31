@@ -249,8 +249,6 @@
     "product_page": "Product page",
     "product_vendor": "Product vendor",
     "stickers": "Stickers",
-    "tooltip": "Tooltip",
-    "tooltips": "Tooltips",
     "top_seller_badge": "Top seller badge",
 
     "free_shipping_bar": "Free shipping bar",
@@ -1155,7 +1153,6 @@
     "show_second_image_on_hover": "Show second image on hover",
     "show_swatch_label": "Text labels for swatches",
     "show_tax_info": "Tax information",
-    "show_tax_info_tooltip": "Show tax information as tooltip",
     // Font size or element dimensions setting
     "size": "Size",
     "size_mobile": "Mobile size",

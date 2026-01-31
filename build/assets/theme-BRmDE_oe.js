@@ -1,4 +1,3 @@
-import "./tooltips-Cys2S6oV.js";
 class ProductBadges extends HTMLElement {
   connectedCallback() {
     this.variantPicker = this.closest("product-card, .product-card, [data-product-card]")?.querySelector(
