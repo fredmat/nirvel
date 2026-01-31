@@ -2031,6 +2031,13 @@
         "default": false
       },
       {
+        "type": "checkbox",
+        "id": "cart_drawer_show_accelerated_checkout_buttons",
+        "label": "t:settings.checkout_buttons",
+        "info": "t:info.checkout_buttons",
+        "default": false
+      },
+      {
         "type": "range",
         "id": "cart_drawer_width",
         "label": "t:settings.cart_drawer_width",

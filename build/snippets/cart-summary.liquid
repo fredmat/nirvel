@@ -2,7 +2,34 @@
   Renders the cart summary totals.
 
   @param {string} [accelerated_checkout_buttons_layout] - { 'vertical' } Forced layout of the additional checkout buttons, instead of relying on platform's layout.
+  @param {string} context
+    Rendering context.  
+    Allowed values:
+    - 'page'   (default): full cart page
+    - 'drawer': cart drawer
 {%- enddoc -%}
+
+{% liquid
+  assign context = context | default: 'page'
+  assign allowed_contexts = 'page,drawer' | split: ','
+
+  unless allowed_contexts contains context
+    assign context = 'page'
+  endunless
+
+  assign is_drawer = false
+  if context == 'drawer'
+    assign is_drawer = true
+  endif
+
+  assign show_accelerated = false
+  if is_drawer and settings.cart_drawer_show_accelerated_checkout_buttons
+    assign show_accelerated = true
+  elsif is_drawer == false and settings.show_accelerated_checkout_buttons
+    assign show_accelerated = true
+  endif
+%}
+
 <div class="cart__summary-totals">
   {% # We need to keep this node in place to allow morphing to work properly # %}
   <div class="cart__original-total-container cart-primary-typography">
@@ -127,7 +154,7 @@
     </a>
   {% endif %}
 
-  {% if additional_checkout_buttons and settings.show_accelerated_checkout_buttons %}
+  {% if additional_checkout_buttons and show_accelerated %}
     <div
       class="
         additional-checkout-buttons
