@@ -113,7 +113,7 @@
             <li class="variant-option__swatch">
               <label
                 data-media-id="{{ featured_media.id }}"
-                class="variant-option__button-label variant-option__button-label--has-swatch swatch-rounded"
+                class="variant-option__button-label variant-option__button-label--has-swatch swatch-rounded{% unless product_option_value.available %} variant-option__button-label--unavailable{% endunless %}"
                 on:pointerenter="product-card/previewVariant/{{ featured_media.id }}"
                 on:pointerleave="product-card/resetVariant"
               >

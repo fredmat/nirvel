@@ -27,11 +27,13 @@
     <h3 class="h4">{{ 'content.product_card_placeholder' | t }}</h3>
   {% else %}
     <h3 class="h4">{{ closest.product.title }}</h3>
+    {% comment %}
     <div class="h6">
       <product-price data-product-id="{{ closest.product.id }}">
         {% render 'price', product_resource: closest.product, show_unit_price: false %}
       </product-price>
     </div>
+    {% endcomment %}
   {% endif %}
 </div>
 

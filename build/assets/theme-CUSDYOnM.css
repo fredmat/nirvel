@@ -9,7 +9,8 @@
 .price-wrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--gap-xs);
+  column-gap: var(--gap-2xs);
+  row-gap: 0;
 }
 .price-wrapper .price,
 .price-wrapper .compare-at-price,
@@ -20,6 +21,7 @@
   color: var(--color-foreground);
 }
 .price-wrapper .unit-price {
+  flex: 100%;
   display: block;
   font-size: min(0.85em, var(--font-paragraph--size));
   color: rgb(var(--color-foreground-rgb)/var(--opacity-subdued-text));
