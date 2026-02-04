@@ -33,7 +33,7 @@
           "settings": {
             "gap": 36,
             "image_ratio": "square",
-            "dividers": false,
+            "dividers": true,
             "vendor": false,
             "show_account_link": false,
             "type_preset": "",

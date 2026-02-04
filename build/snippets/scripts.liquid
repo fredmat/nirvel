@@ -86,6 +86,10 @@
   </script>
 {% endif %}
 
+<script type="module">
+  import '@theme/recently-viewed-products-section';
+</script>
+
 {% if settings.transition_to_main_product %}
   <script src="{{ 'product-card-link.js' | asset_url }}" type="module" fetchpriority="low"></script>
 {% endif %}
