@@ -40,6 +40,7 @@ class RecentlyViewedProductsComponent extends HTMLElement {
       if (updatedComponent?.innerHTML && updatedComponent.innerHTML.trim().length) {
         this.dataset.recentlyViewedPerformed = 'true';
         this.innerHTML = updatedComponent.innerHTML;
+        this.removeAttribute('hidden');
       } else {
         this.setAttribute('hidden', '');
       }

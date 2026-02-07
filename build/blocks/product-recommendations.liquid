@@ -1,8 +1,6 @@
 {%- doc -%}
   Renders product recommendations.
   {section.id} - identifies the parent section for the Section Rendering API
-
-  https://shopify.dev/docs/api/section-rendering-api
 {%- enddoc -%}
 
 <script
@@ -46,8 +44,8 @@
       gap-style
     "
     style="
-      {%  render 'spacing-style', settings: block_settings %}
-      {%  render 'gap-style', value: block_settings.gap %}
+      {% render 'spacing-style', settings: block_settings %}
+      {% render 'gap-style', value: block_settings.gap %}
       --resource-list-column-gap-desktop: {{ block_settings.columns_gap }}px;
       --resource-list-row-gap-desktop: {{ block_settings.rows_gap }}px;
       --resource-list-columns-mobile: repeat(auto-fill, minmax(9.25rem, 1fr));
@@ -97,7 +95,6 @@
       {% endcapture %}
 
       {% liquid
-        # Create an array from the list items to be used in the carousel
         assign slide_content = list_items | strip
         assign slides = slide_content | split: '<!--@list/split-->'
 

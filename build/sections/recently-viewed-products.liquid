@@ -33,11 +33,11 @@
   data-testid="recently-viewed-products-section"
   {{ section.shopify_attributes }}
   {% if request.page_type == 'product' and product %}
+    hidden
     data-current-product-id="{{ product.id }}"
   {% endif %}
 >
   <div class="section-background color-{{ section.settings.color_scheme }}"></div>
-
   <div
     class="
       section
@@ -203,12 +203,12 @@
     width: 100%;
   }
 
-  .recently-viewed-products-wrapper:has(recently-viewed-products[data-shopify-editor-preview]) {
+  .recently-viewed-products-wrapper:has(recently-viewed-products-component[data-shopify-editor-preview]) {
     width: 100vw;
   }
 
   .recently-viewed-products {
-    display: block;
+    /*display: block;*/
   }
 
   .recently-viewed-products__skeleton-item {
