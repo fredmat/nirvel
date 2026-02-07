@@ -35,6 +35,7 @@
     "play_model": "Play 3D model",
     "play_video": "Play video",
     "loading_product_recommendations": "Loading product recommendations",
+    "loading_recently_viewed_products": "Loading recently viewed products",
     "rating": "Rating of this product is {{ rating }} out of 5",
     "remove_item": "Remove {{ title}}",
     "reset_search": "Reset search",

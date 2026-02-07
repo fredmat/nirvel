@@ -1,5 +1,5 @@
 <script
-  src="{{ 'product-recommendations.js' | asset_url }}"
+  src="{{ 'recently-viewed-products-component.js' | asset_url }}"
   type="module"
   fetchpriority="low"
 ></script>
@@ -24,18 +24,20 @@
   endcapture
 %}
 
-<product-recommendations
-  id="product-recommendations-{{ section.id }}"
-  class="product-recommendations"
-  data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.max_products }}"
+<recently-viewed-products-component
+  id="recently-viewed-products-{{ section.id }}"
+  class="recently-viewed-products"
   data-section-id="{{ section.id }}"
-  data-product-id="{{ section.settings.product.id | default: product.id }}"
-  data-intent="{{ section.settings.recommendation_type }}"
-  data-testid="product-recommendations-section"
-  data-recommendations-performed="{{ recommendations.performed }}"
+  data-limit="{{ section.settings.max_products }}"
+  data-recently-viewed-performed="false"
+  data-testid="recently-viewed-products-section"
   {{ section.shopify_attributes }}
+  {% if request.page_type == 'product' and product %}
+    data-current-product-id="{{ product.id }}"
+  {% endif %}
 >
   <div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
   <div
     class="
       section
@@ -46,8 +48,8 @@
       gap-style
     "
     style="
-      {%  render 'spacing-style', settings: section.settings %}
-      {%  render 'gap-style', value: section.settings.gap %}
+      {% render 'spacing-style', settings: section.settings %}
+      {% render 'gap-style', value: section.settings.gap %}
       {{ styles }}
     "
   >
@@ -55,48 +57,79 @@
       {% content_for 'blocks' %}
     </div>
 
-    {%- if recommendations.performed or section.settings.product == blank -%}
+    {%- if search.performed -%}
       {% liquid
-        if section.settings.product == blank
-          assign products = null
-          # Onboarding mode: Show placeholder products
-          for i in (1..section.settings.max_products)
-            assign products = products | append: ', '
-            assign products = products | split: ','
-          endfor
-        elsif recommendations.performed and recommendations.products_count == 0
-          # No recommendations found, pull from catalog
-          if section.settings.recommendation_type == 'related'
-            assign products = collections.all.products | reject: 'id', section.settings.product.id
-          elsif section.settings.recommendation_type == 'complementary'
-            # Do not recommend the All collection as complementary products
-            assign products = null
-          endif
+        assign products = search.results
 
-        else
-          assign products = recommendations.products
+        # Extract desired order from search.terms (same trick as Horizon predictive-search)
+        assign order_ids = null
+        if search.terms contains 'id:'
+          assign order_ids = search.terms | replace: 'id:', '' | split: ' OR '
         endif
+
+        # Build ordered products list (string split trick)
+        assign ordered_products_str = ''
+        assign ordered_count = 0
+
+        if order_ids != blank
+          for wanted_id in order_ids
+            assign wanted_id_str = wanted_id | strip
+            for item in products
+              if item.object_type == 'product'
+                assign item_id_str = item.id | append: ''
+                if item_id_str == wanted_id_str
+                  # Append product handle marker with split token
+                  assign ordered_products_str = ordered_products_str | append: item.handle | append: '<!--@rv/split-->'
+                  assign ordered_count = ordered_count | plus: 1
+                  break
+                endif
+              endif
+            endfor
+
+            if ordered_count >= section.settings.max_products
+              break
+            endif
+          endfor
+        else
+          for item in products
+            if item.object_type == 'product'
+              assign ordered_products_str = ordered_products_str | append: item.handle | append: '<!--@rv/split-->'
+              assign ordered_count = ordered_count | plus: 1
+            endif
+
+            if ordered_count >= section.settings.max_products
+              break
+            endif
+          endfor
+        endif
+
+        assign ordered_handles = ordered_products_str | split: '<!--@rv/split-->'
       %}
+
       {% capture list_items %}
-        {% for product in products limit: section.settings.max_products %}
-          <div class="resource-list__item">
-            {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
-          </div>
-          {% unless forloop.last %}
-            <!--@list/split-->
-          {% endunless %}
-        {% endfor %}
+        {%- for handle in ordered_handles -%}
+          {%- if handle != blank -%}
+            {%- assign p = all_products[handle] -%}
+            {%- if p != blank -%}
+              <div class="resource-list__item">
+                {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: p %}
+              </div>
+              {% unless forloop.last %}
+                <!--@list/split-->
+              {% endunless %}
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
       {% endcapture %}
 
       {% liquid
-        # Create an array from the list items to be used in the carousel
         assign slide_content = list_items | strip
         assign slides = slide_content | split: '<!--@list/split-->'
 
-        if products != blank and products.size > 0
-          assign has_recommendations = 'true'
+        if slide_content != blank and slide_content.size > 0
+          assign has_recently_viewed = 'true'
         else
-          assign has_recommendations = 'false'
+          assign has_recently_viewed = 'false'
         endif
       %}
 
@@ -114,7 +147,7 @@
         {% if section.settings.layout_type == 'grid' %}
           data-testid="resource-list-grid"
         {% endif %}
-        data-has-recommendations="{{ has_recommendations }}"
+        data-has-recently-viewed="{{ has_recently_viewed }}"
       >
         {% case section.settings.layout_type %}
           {% when 'grid' %}
@@ -123,7 +156,7 @@
             {% render 'resource-list-carousel',
               ref: 'resourceListCarousel',
               slides: slides,
-              slide_count: recommendations.products.size,
+              slide_count: slides.size,
               settings: section.settings
             %}
         {% endcase %}
@@ -147,109 +180,71 @@
           {% render 'resource-list-carousel',
             ref: 'resourceListCarouselMobile',
             slides: slides,
-            slide_count: recommendations.products.size,
+            slide_count: slides.size,
             settings: section.settings
           %}
         </div>
       {% endif %}
     {%- else -%}
-      <div
-        class="resource-list resource-list--grid"
-      >
+      <div class="resource-list resource-list--grid">
         {% for i in (1..section.settings.columns) %}
           <div
-            class="product-recommendations__skeleton-item"
-            aria-label="{{ 'accessibility.loading_product_recommendations' | t }}"
+            class="recently-viewed-products__skeleton-item"
+            aria-label="{{ 'accessibility.loading_recently_viewed_products' | t }}"
           ></div>
         {% endfor %}
       </div>
     {%- endif -%}
   </div>
-</product-recommendations>
+</recently-viewed-products-component>
 
 {% stylesheet %}
-  .product-recommendations__skeleton-item {
-    aspect-ratio: 3 / 4;
+  .recently-viewed-products-wrapper {
+    width: 100%;
+  }
+
+  .recently-viewed-products-wrapper:has(recently-viewed-products[data-shopify-editor-preview]) {
+    width: 100vw;
+  }
+
+  .recently-viewed-products {
+    display: block;
+  }
+
+  .recently-viewed-products__skeleton-item {
+    aspect-ratio: 1;
     background-color: var(--color-foreground);
     opacity: var(--skeleton-opacity);
     border-radius: 4px;
   }
 
   @media screen and (max-width: 749px) {
-    .product-recommendations__skeleton-item:nth-child(2n + 1) {
+    .recently-viewed-products__skeleton-item:nth-child(2n + 1) {
       display: none;
     }
-  }
-
-  product-recommendations:has([data-has-recommendations='false']) {
-    display: none;
   }
 {% endstylesheet %}
 
 {% schema %}
   {
-    "name": "t:names.product_recommendations",
+    "name": "t:names.recently_viewed_products",
+    "class": "recently-viewed-products-wrapper",
     "disabled_on": {
       "groups": ["header", "footer", "custom.overlays"]
     },
     "blocks": [
-      {
-        "type": "@theme"
-      },
-      {
-        "type": "@app"
-      },
-      {
-        "type": "text"
-      },
-      {
-        "type": "icon"
-      },
-      {
-        "type": "image"
-      },
-      {
-        "type": "button"
-      },
-      {
-        "type": "video"
-      },
-      {
-        "type": "group"
-      },
-      {
-        "type": "spacer"
-      },
-      {
-        "type": "_divider"
-      }
+      { "type": "@theme" },
+      { "type": "@app" },
+      { "type": "text" },
+      { "type": "icon" },
+      { "type": "image" },
+      { "type": "button" },
+      { "type": "video" },
+      { "type": "group" },
+      { "type": "spacer" },
+      { "type": "_divider" }
     ],
     "settings": [
-      {
-        "type": "product",
-        "id": "product",
-        "label": "t:settings.product"
-      },
-      {
-        "type": "select",
-        "id": "recommendation_type",
-        "label": "t:settings.type",
-        "options": [
-          {
-            "value": "related",
-            "label": "t:options.related"
-          },
-          {
-            "value": "complementary",
-            "label": "t:options.complementary"
-          }
-        ],
-        "default": "related"
-      },
-      {
-        "type": "paragraph",
-        "content": "t:content.complementary_products"
-      },
       {
         "type": "header",
         "content": "t:content.cards_layout"
@@ -281,7 +276,7 @@
         "type": "range",
         "id": "max_products",
         "label": "t:settings.product_count",
-        "min": 3,
+        "min": 1,
         "max": 10,
         "step": 1,
         "default": 4
@@ -291,7 +286,7 @@
         "id": "columns",
         "label": "t:settings.columns",
         "min": 1,
-        "max": 8,
+        "max": 10,
         "step": 1,
         "default": 4
       },
@@ -452,11 +447,9 @@
     ],
     "presets": [
       {
-        "name": "t:names.product_recommendations",
+        "name": "t:names.recently_viewed_products",
         "category": "t:categories.products",
         "settings": {
-          "product": "{{ closest.product }}",
-          "recommendation_type": "related",
           "layout_type": "grid",
           "carousel_on_mobile": false,
           "max_products": 4,
@@ -477,7 +470,7 @@
             "type": "text",
             "name": "t:names.header",
             "settings": {
-              "text": "t:html_defaults.related_product"
+              "text": "t:html_defaults.recently_viewed"
             }
           },
           "static-product-card": {
