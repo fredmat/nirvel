@@ -36,6 +36,7 @@
     "empty_cart": "Empty cart",
     "mobile_padding": "Mobile padding",
     "product_inventory": "Product inventory",
+    "resource_reference_collection_headline": "Displays headline from parent collection",
     "savings_display": "Savings display",
 
     
@@ -243,6 +244,7 @@
   },
   "names": {
     "cart_drawer": "Cart drawer",
+    "collection_headline": "Collection headline",
     "overlays": "Overlays",
     "product_badges": "Product badges",
     "product_meta": "Product meta",
@@ -454,6 +456,11 @@
     "category_metafields": "Shopify",
     "cursor_pointer": "Pointer",
     "custom_metafields": "Custom",
+
+    "fade_long": "Long fade",
+    "fade_medium": "Medium fade",
+    "fade_short": "Short fade",
+    
     "inline": "Inline",
     "list": "List",
     "light_temperature": "Light temperature",
@@ -785,10 +792,18 @@
     "cursor": "Cursor",
     "enable_animation": "Enable animation",
     "enable_vendor_link": "Enable vendor link",
+
+    "gradient_start": "Start",
+    "gradient_mid": "Midpoint",
+    "gradient_end": "End",
+    "gradient_advanced": "Advanced gradient settings",
+    "gradient_preset": "Gradient style",
+
     "heading_case": "Heading case",
     "link_case": "Link case",
     "inherit_global_badge_settings": "Inherit global badge settings",
     "make_element_focusable": "Make this element focusable",
+    "max_lines": "Max lines",
     "meta": "Meta",
     "metafields": "Metafields",
     "price_color": "Price",

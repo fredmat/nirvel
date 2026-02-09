@@ -8,6 +8,46 @@
   {% render 'overlay', settings: section.settings, layer: 'var(--layer-raised)' %}
 {%- enddoc -%}
 
+{%- liquid
+  # Defaults
+  assign gs = 0
+  assign gm = 60
+  assign ge = 100
+
+  # If advanced ON -> use user-defined stops
+  if settings.gradient_advanced
+    assign gs = settings.gradient_start | default: 0
+    assign gm = settings.gradient_mid   | default: 60
+    assign ge = settings.gradient_end   | default: 100
+  else
+    # Otherwise -> preset
+    case settings.gradient_preset
+      when 'short'
+        assign gs = 0
+        assign gm = 20
+        assign ge = 40
+      when 'medium'
+        assign gs = 0
+        assign gm = 40
+        assign ge = 70
+      else
+        # 'long' default
+        assign gs = 0
+        assign gm = 60
+        assign ge = 100
+    endcase
+  endif
+
+  # Guard rails: enforce gs <= gm <= ge
+  if gs > gm
+    assign gm = gs
+  endif
+
+  if gm > ge
+    assign ge = gm
+  endif
+-%}
+
 <div
   class="overlay overlay--{{ settings.overlay_style | default: 'gradient' }}"
   style="
@@ -15,6 +55,9 @@
     --overlay-color: {{ settings.overlay_color | default: 'rgb(0 0 0 / var(--opacity-25))' }};
     --overlay-color--end: {{ settings.overlay_color | color_modify: 'alpha', 0 | default: 'rgb(0 0 0 / 0)' }};
     --overlay-direction: {{ settings.gradient_direction | default: 'to top' }};
+    --overlay-gradient-start: {{ gs }}%;
+    --overlay-gradient-mid: {{ gm }}%;
+    --overlay-gradient-end: {{ ge }}%;
     {%- if settings.border_radius %} --overlay-border-radius: {{ settings.border_radius | default: '0' }}px;{% endif -%}
   "
 ></div>
@@ -33,6 +76,11 @@
   }
 
   .overlay--gradient {
-    background: linear-gradient(var(--overlay-direction), var(--overlay-color), var(--overlay-color--end));
+    background: linear-gradient(
+      var(--overlay-direction),
+      var(--overlay-color) var(--overlay-gradient-start, 0%),
+      var(--overlay-color) var(--overlay-gradient-mid, 60%),
+      var(--overlay-color--end) var(--overlay-gradient-end, 100%)
+    );
   }
 {% endstylesheet %}

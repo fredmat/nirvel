@@ -1,48 +1,52 @@
 {% if closest.collection == blank %}
-  {% assign text = 'placeholders.collection_title' | t %}
-  {% assign collection_title = '<p>' | append: text | append: '</p>' %}
-  {% render 'text', fallback_text: collection_title, block: block %}
-{% elsif closest.collection != blank %}
-  {% assign title_html = closest.collection.title %}
+  {% assign text = 'placeholders.collection_headline' | t %}
+  {% assign collection_headline = '<p>' | append: text | append: '</p>' %}
+  {% render 'text', fallback_text: collection_headline, block: block %}
+{% else %}
+  {%- assign headline = closest.collection.metafields.collection.collection_headline.value -%}
+  {%- assign description = closest.collection.description | strip_html | strip -%}
 
-  {% assign count_html = '' %}
-  {% if block.settings.show_product_count and closest.collection.products_count > 0 %}
-    {% assign count_html = '<small class="collection-title__count">' | append: closest.collection.products_count | append: '</small>' %}
+  {%- assign display_text = '' -%}
+  {%- if headline != blank -%}
+    {%- assign display_text = headline -%}
+  {%- elsif description != blank -%}
+    {%- assign display_text = description -%}
+  {%- endif -%}
+
+  {% if display_text != blank %}
+    {%- assign display_text_html = display_text | escape -%}
+    {%- assign collection_text = '<span class="collection-headline__wrapper">' | append: display_text_html | append: '</span>' -%}
+    {% render 'text', fallback_text: collection_text, block: block %}
   {% endif %}
-
-  {% assign collection_title = title_html | append: count_html %}
-  {% assign collection_title = '<span class="collection-title__wrapper">' | append: collection_title | append: '</span>' %}
-  {% render 'text', fallback_text: collection_title, block: block %}
 {% endif %}
 
 {% style %}
-  .collection-title__wrapper {
-    position: relative;
-  }
-
-  .collection-title__count {
-    position: absolute;
-    inset-inline-start: calc(100% + 0.4em);
-    font-size: var(--font-size--sm);
-    font-weight: var(--font-subheading--weight);
-    letter-spacing: var(--letter-spacing--body-normal);
+  .collection-headline__wrapper {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: {{ block.settings.line_clamp | default: 2 }};
+    line-clamp: {{ block.settings.line_clamp | default: 2 }};
   }
 {% endstyle %}
 
 {% schema %}
 {
-  "name": "t:names.collection_title",
+  "name": "t:names.collection_headline",
   "tag": null,
   "settings": [
     {
       "type": "paragraph",
-      "content": "t:content.resource_reference_collection_title"
+      "content": "t:content.resource_reference_collection_headline"
     },
     {
-      "type": "checkbox",
-      "id": "show_product_count",
-      "label": "t:settings.show_product_count",
-      "default": false
+      "type": "range",
+      "id": "line_clamp",
+      "label": "t:settings.max_lines",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 2
     },
     {
       "type": "header",
@@ -417,7 +421,7 @@
   ],
   "presets": [
     {
-      "name": "t:names.collection_title",
+      "name": "t:names.collection_headline",
       "category": "t:categories.collection"
     }
   ]
