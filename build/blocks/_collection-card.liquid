@@ -129,6 +129,55 @@
     },
     {
       "type": "header",
+      "content": "t:content.card_padding",
+      "visible_if": "{{ block.settings.placement == \"on_image\" }}"
+    },
+    {
+      "type": "range",
+      "id": "collection_padding_block_start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16,
+      "visible_if": "{{ block.settings.placement == \"on_image\" }}"
+    },
+    {
+      "type": "range",
+      "id": "collection_padding_block_end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16,
+      "visible_if": "{{ block.settings.placement == \"on_image\" }}"
+    },
+    {
+      "type": "range",
+      "id": "collection_padding_inline_start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16,
+      "visible_if": "{{ block.settings.placement == \"on_image\" }}"
+    },
+    {
+      "type": "range",
+      "id": "collection_padding_inline_end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16,
+      "visible_if": "{{ block.settings.placement == \"on_image\" }}"
+    },
+    {
+      "type": "header",
       "content": "t:content.appearance"
     },
     {
@@ -190,7 +239,8 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "default": 0
+      "default": 0,
+      "visible_if": "{{ block.settings.placement == \"on_image\" }}"
     }
   ]
 }

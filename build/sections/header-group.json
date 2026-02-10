@@ -11,6 +11,52 @@
   "type": "header",
   "name": "t:names.header",
   "sections": {
+    "header_announcements_aPizE7": {
+      "type": "header-announcements",
+      "blocks": {
+        "announcement_Rawmg4": {
+          "type": "_announcement",
+          "name": "t:names.announcement",
+          "settings": {
+            "text": "Register & Enjoy 30% OFF on your first order",
+            "link": "",
+            "font": "var(--font-heading--family)",
+            "font_size": "1.125rem",
+            "weight": "",
+            "letter_spacing": "tight",
+            "case": "none"
+          },
+          "blocks": {}
+        },
+        "announcement_DeeCLy": {
+          "type": "_announcement",
+          "disabled": true,
+          "settings": {
+            "text": "Shop our latest arrivals!",
+            "link": "",
+            "font": "var(--font-accent--family)",
+            "font_size": "1.5rem",
+            "weight": "",
+            "letter_spacing": "tight",
+            "case": "none"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "announcement_Rawmg4",
+        "announcement_DeeCLy"
+      ],
+      "name": "t:names.announcement_bar",
+      "settings": {
+        "speed": 3,
+        "section_width": "page-width",
+        "color_scheme": "scheme-5",
+        "divider_width": 0.5,
+        "padding-block-start": 15,
+        "padding-block-end": 15
+      }
+    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -56,10 +102,10 @@
         "show_search": true,
         "search_position": "right",
         "search_row": "top",
-        "show_country": false,
+        "show_country": true,
         "country_selector_style": false,
         "country_hide_single": false,
-        "show_language": false,
+        "show_language": true,
         "localization_font": "heading",
         "localization_font_size": "0.875rem",
         "localization_position": "right",
@@ -69,7 +115,7 @@
         "enable_sticky_header": "scroll-up",
         "divider_width": 0,
         "divider_size": "page-width",
-        "border_width": 0,
+        "border_width": 1,
         "color_scheme_top": "scheme-1",
         "color_scheme_bottom": "",
         "color_scheme_transparent": "scheme-6",
@@ -83,6 +129,7 @@
     }
   },
   "order": [
+    "header_announcements_aPizE7",
     "header_section"
   ]
 }

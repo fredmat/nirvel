@@ -1,34 +1,34 @@
 {% if closest.collection == blank %}
   {% assign text = 'placeholders.collection_headline' | t %}
-  {% assign collection_headline = '<p>' | append: text | append: '</p>' %}
+  {% capture collection_headline %}<p>{{ text }}</p>{% endcapture %}
   {% render 'text', fallback_text: collection_headline, block: block %}
 {% else %}
-  {%- assign headline = closest.collection.metafields.collection.collection_headline.value -%}
+  {%- assign headline = closest.collection.metafields.custom.collection_headline.value -%}
   {%- assign description = closest.collection.description | strip_html | strip -%}
 
-  {%- assign display_text = '' -%}
-  {%- if headline != blank -%}
-    {%- assign display_text = headline -%}
-  {%- elsif description != blank -%}
-    {%- assign display_text = description -%}
-  {%- endif -%}
+  {%- assign display_text = headline | default: description -%}
 
   {% if display_text != blank %}
-    {%- assign display_text_html = display_text | escape -%}
-    {%- assign collection_text = '<span class="collection-headline__wrapper">' | append: display_text_html | append: '</span>' -%}
+    {%- assign clamp = block.settings.line_clamp | default: 2 -%}
+    {%- assign hide_on_mobile = block.settings.hide_on_mobile -%}
+
+    {% capture collection_text %}
+      <span
+        class="
+          collection-headline__wrapper
+          {% if hide_on_mobile %}
+            collection-headline__wrapper--hide-on-mobile
+          {% endif %}
+        "
+        style="--collection-card-headline-line-clamp: {{ clamp }};"
+      >
+        {{ display_text | escape }}
+      </span>
+    {% endcapture %}
+
     {% render 'text', fallback_text: collection_text, block: block %}
   {% endif %}
 {% endif %}
-
-{% style %}
-  .collection-headline__wrapper {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: {{ block.settings.line_clamp | default: 2 }};
-    line-clamp: {{ block.settings.line_clamp | default: 2 }};
-  }
-{% endstyle %}
 
 {% schema %}
 {
@@ -38,6 +38,16 @@
     {
       "type": "paragraph",
       "content": "t:content.resource_reference_collection_headline"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:content.collection_headline_metafield_warn"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_on_mobile",
+      "label": "t:settings.hide_on_mobile",
+      "default": false
     },
     {
       "type": "range",
@@ -185,6 +195,10 @@
         {
           "value": "0.75rem",
           "label": "12px"
+        },
+        {
+          "value": "0.8125rem",
+          "label": "13px"
         },
         {
           "value": "0.875rem",

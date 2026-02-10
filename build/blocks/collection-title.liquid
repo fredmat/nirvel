@@ -15,20 +15,6 @@
   {% render 'text', fallback_text: collection_title, block: block %}
 {% endif %}
 
-{% style %}
-  .collection-title__wrapper {
-    position: relative;
-  }
-
-  .collection-title__count {
-    position: absolute;
-    inset-inline-start: calc(100% + 0.4em);
-    font-size: var(--font-size--sm);
-    font-weight: var(--font-subheading--weight);
-    letter-spacing: var(--letter-spacing--body-normal);
-  }
-{% endstyle %}
-
 {% schema %}
 {
   "name": "t:names.collection_title",
@@ -181,6 +167,10 @@
         {
           "value": "0.75rem",
           "label": "12px"
+        },
+        {
+          "value": "0.8125rem",
+          "label": "13px"
         },
         {
           "value": "0.875rem",
