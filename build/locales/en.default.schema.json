@@ -785,6 +785,7 @@
     "youtube": "YouTube"
   },
   "settings": {
+    "arrow_size": "Arrow size",
     "background_opacity": "Background opacity",
     "badge_style": "Badge style",
     "custom_savings_text": "Custom savings text",
@@ -828,6 +829,7 @@
     "translucent_background": "Translucent background",
     "trigger": "Trigger",
     "typography": "Typography",
+    "show_arrow": "Show arrow",
     "show_vendor": "Show vendor",
     "show_sale_price_first_default": "Show sale price first by default",
     "vendor_title_case": "Vendor title case",

@@ -207,35 +207,59 @@
     }
   }
 
+  /* Collection title */
   .collection-title__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap-xl); /* ?? */
+  }
+
+  .collection-title__text {
     position: relative;
-  }
-
-  .collection-card__link .collection-title__wrapper {
-
-  }
-
-  .collection-card__link + * .collection-title__wrapper {
+    /*word-break: break-word;*/
     text-decoration: none;
     text-decoration-color: transparent;
-    transition: text-decoration-color var(--animation-speed) var(--animation-easing),
-      color var(--animation-speed) var(--animation-easing);
-  }
-
-  .collection-card__link:hover + * .collection-title__wrapper {
-    text-decoration: underline;
-    text-decoration-thickness: 0.06em;
-    text-underline-offset: 0.15em;
+    transition: text-decoration-color var(--animation-speed-slow) var(--animation-easing),
+      color var(--animation-speed-slow) var(--animation-easing);
   }
 
   .collection-title__count {
     position: absolute;
+    inset-block-start: 0;
     inset-inline-start: calc(100% + 0.3em);
+    white-space: nowrap;
+    text-decoration: none;
     font-size: var(--font-size--xs);
     font-weight: var(--font-subheading--weight);
     letter-spacing: var(--letter-spacing--body-normal);
   }
 
+  .collection-title__icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    transform: translateX(0);
+    transition: transform var(--animation-speed) var(--animation-easing);
+    will-change: transform;
+  }
+
+  .collection-title__icon.svg-wrapper,
+  .collection-title__icon.svg-wrapper > svg {
+    width: var(--icon-arrow-size, var(--icon-size-lg));
+    height: var(--icon-arrow-size, var(--icon-size-lg));
+  }
+
+  .collection-card__link:hover ~ .collection-card__inner .collection-title__text {
+    text-decoration: underline;
+    text-decoration-thickness: 0.05em;
+    text-underline-offset: 0.2em;
+  }
+
+  .collection-card__link:hover ~ .collection-card__inner .collection-title__icon {
+    transform: translateX(0.1em);
+  }
+
+  /* Collection headline */
   .collection-headline__wrapper {
     overflow: hidden;
     display: -webkit-box;
