@@ -3897,6 +3897,10 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
   grid-template-columns: var(--resource-list-columns-mobile);
 
   @media screen and (min-width: 750px) {
+    grid-template-columns: var(--resource-list-columns-tablet);
+  }
+
+  @media screen and (min-width: 990px) {
     grid-template-columns: var(--resource-list-columns);
   }
 

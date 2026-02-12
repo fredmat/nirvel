@@ -246,6 +246,7 @@
   },
   "names": {
     "cart_drawer": "Cart drawer",
+    "collection_summary": "Collection summary",
     "collection_headline": "Collection headline",
     "overlays": "Overlays",
     "product_badges": "Product badges",
@@ -785,6 +786,7 @@
     "youtube": "YouTube"
   },
   "settings": {
+    "animate_arrow": "Animate arrow",
     "arrow_size": "Arrow size",
     "background_opacity": "Background opacity",
     "badge_style": "Badge style",
@@ -825,6 +827,7 @@
     "show_savings": "Show savings",
     "show_view_cart_button": "Show view cart button",
     "max_rank_display_badge": "Maximum rank to display badge",
+    "tablet_columns": "Tablet columns",
     "text_size": "Text size",
     "translucent_background": "Translucent background",
     "trigger": "Trigger",
@@ -832,6 +835,7 @@
     "show_arrow": "Show arrow",
     "show_vendor": "Show vendor",
     "show_sale_price_first_default": "Show sale price first by default",
+    "use_collection_description_as_fallback": "Use collection description if headline is empty",
     "vendor_title_case": "Vendor title case",
 
 

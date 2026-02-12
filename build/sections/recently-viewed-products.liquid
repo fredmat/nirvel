@@ -17,6 +17,7 @@
     echo '--resource-list-column-gap-desktop: ' | append: section.settings.columns_gap | append: 'px;'
     echo '--resource-list-row-gap-desktop: ' | append: section.settings.rows_gap | append: 'px;'
     echo '--resource-list-columns: repeat(' | append: section.settings.columns | append: ', 1fr);'
+    echo '--resource-list-columns-tablet: repeat(' | append: section.settings.tablet_columns | append: ', 1fr);'
     echo '--resource-list-columns-mobile: repeat(' | append: section.settings.mobile_columns | append: ', 1fr);'
     echo '--resource-list-column-gap-desktop: ' | append: section.settings.columns_gap | append: 'px;'
     echo '--column-count: ' | append: section.settings.columns | append: ';'
@@ -286,9 +287,19 @@
         "id": "columns",
         "label": "t:settings.columns",
         "min": 1,
-        "max": 10,
+        "max": 8,
         "step": 1,
         "default": 4
+      },
+      {
+        "type": "range",
+        "id": "tablet_columns",
+        "label": "t:settings.tablet_columns",
+        "min": 2,
+        "max": 6,
+        "step": 1,
+        "default": 3,
+        "visible_if": "{{ section.settings.layout_type == 'grid' }}"
       },
       {
         "type": "select",

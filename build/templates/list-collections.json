@@ -104,10 +104,13 @@
             "border_radius": 0
           },
           "blocks": {
-            "group_r4XMmG": {
-              "type": "group",
-              "name": "Collection card content",
+            "collection_summary_PTyqCk": {
+              "type": "collection-summary",
+              "name": "t:names.collection_summary",
               "settings": {
+                "show_arrow": true,
+                "animate_arrow": true,
+                "arrow_size": 26,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
                 "horizontal_alignment": "flex-start",
@@ -115,15 +118,15 @@
                 "align_baseline": false,
                 "horizontal_alignment_flex_direction_column": "flex-start",
                 "vertical_alignment_flex_direction_column": "center",
-                "gap": 4,
+                "gap": 8,
                 "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
                 "custom_width_mobile": 100,
                 "height": "fit",
                 "custom_height": 100,
-                "inherit_color_scheme": false,
-                "color_scheme": "scheme-6",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
                 "background_media": "none",
                 "video_position": "cover",
                 "background_image_position": "cover",
@@ -132,7 +135,7 @@
                 "border_opacity": 100,
                 "border_radius": 0,
                 "toggle_overlay": false,
-                "overlay_color": "#17171775",
+                "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
                 "link": "",
@@ -144,14 +147,11 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "collection_title_3rTTz8": {
+                "collection_title_fUdU6y": {
                   "type": "collection-title",
-                  "name": "t:names.collection_title",
                   "settings": {
                     "show_product_count": false,
-                    "show_arrow": true,
-                    "arrow_size": 24,
-                    "width": "100%",
+                    "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
                     "type_preset": "custom",
@@ -172,13 +172,13 @@
                   },
                   "blocks": {}
                 },
-                "collection_headline_mJPez4": {
+                "collection_headline_XebgHe": {
                   "type": "collection-headline",
-                  "name": "t:names.collection_headline",
                   "disabled": true,
                   "settings": {
                     "hide_on_mobile": false,
                     "line_clamp": 1,
+                    "use_description_as_fallback": true,
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -186,9 +186,9 @@
                     "font": "var(--font-body--family)",
                     "font_size": "0.8125rem",
                     "line_height": "normal",
-                    "letter_spacing": "loose",
+                    "letter_spacing": "normal",
                     "case": "none",
-                    "wrap": "balance",
+                    "wrap": "pretty",
                     "color": "var(--color-foreground)",
                     "background": false,
                     "background_color": "#00000026",
@@ -202,8 +202,8 @@
                 }
               },
               "block_order": [
-                "collection_title_3rTTz8",
-                "collection_headline_mJPez4"
+                "collection_title_fUdU6y",
+                "collection_headline_XebgHe"
               ]
             },
             "collection-card-image": {
@@ -230,7 +230,7 @@
             }
           },
           "block_order": [
-            "group_r4XMmG"
+            "collection_summary_PTyqCk"
           ]
         }
       },
@@ -242,6 +242,7 @@
         "layout_type": "grid",
         "carousel_on_mobile": false,
         "columns": 3,
+        "tablet_columns": 2,
         "mobile_columns": "1",
         "columns_gap": 24,
         "bento_gap": 24,
@@ -270,7 +271,7 @@
             "type_preset": "custom",
             "font": "var(--font-heading--family)",
             "font_size": "2.5rem",
-            "line_height": "normal",
+            "line_height": "tight",
             "letter_spacing": "tight",
             "case": "none",
             "wrap": "pretty",
@@ -384,6 +385,7 @@
         "carousel_on_mobile": false,
         "max_products": 5,
         "columns": 5,
+        "tablet_columns": 3,
         "mobile_columns": "2",
         "columns_gap": 12,
         "rows_gap": 24,

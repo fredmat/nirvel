@@ -2,7 +2,6 @@
   {% capture collection_title %}
     <p>{{ 'placeholders.collection_title' | t }}</p>
   {% endcapture %}
-
   {% render 'text', fallback_text: collection_title, block: block %}
 {% else %}
   {% liquid
@@ -10,38 +9,19 @@
     if block.settings.show_product_count and closest.collection.products_count > 0
       assign show_count = true
     endif
-
-    assign show_arrow = false
-    if block.settings.show_arrow
-      assign show_arrow = true
-    endif
   %}
-
   {% capture collection_title %}
-    <span class="collection-title__wrapper">
-      <span class="collection-title__text">
+    <span class="collection-title">
+      <span class="collection-title__title">
         {{ closest.collection.title }}
-        {% if show_count %}
-          <small class="collection-title__count">
-            {{ closest.collection.products_count }}
-          </small>
-        {% endif %}
       </span>
-      {% if show_arrow %}
-        {% assign arrow_size = block.settings.arrow_size | plus: 0 %}
-        <span
-          class="svg-wrapper collection-title__icon"
-          style="
-            --icon-arrow-size: {{ arrow_size }}px;
-            --icon-arrow-size: {{ arrow_size }}px;
-          "
-        >
-          {{ 'icon-arrow.svg' | inline_asset_content }}
-        </span>
+      {% if show_count %}
+        <small class="collection-title__count">
+          {{ closest.collection.products_count }}
+        </small>
       {% endif %}
     </span>
   {% endcapture %}
-
   {% render 'text', fallback_text: collection_title, block: block %}
 {% endif %}
 
@@ -59,23 +39,6 @@
         "id": "show_product_count",
         "label": "t:settings.show_product_count",
         "default": false
-      },
-      {
-        "type": "checkbox",
-        "id": "show_arrow",
-        "label": "t:settings.show_arrow",
-        "default": false
-      },
-      {
-        "type": "range",
-        "id": "arrow_size",
-        "label": "t:settings.arrow_size",
-        "min": 12,
-        "max": 200,
-        "step": 2,
-        "unit": "px",
-        "default": 24,
-        "visible_if": "{{ block.settings.show_arrow }}"
       },
       {
         "type": "header",
