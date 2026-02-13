@@ -61,10 +61,22 @@
       | image_tag: sizes: sizes, widths: widths, loading: loading, fetchpriority: fetch_priority
     }}
   {%- else -%}
+    {% comment %}
+    {%- assign placeholder_asset = placeholder | default: 'placeholder-1' -%}
+    {%- if placeholder_asset == blank -%}
+      {%- assign placeholder_asset = 'placeholder-1' -%}
+    {%- endif -%}
+    {%- render placeholder_asset -%} <---- ???
+    {% endcomment %}
+
+    {%- render 'placeholder-1' -%}
+
+    {% comment %}
     {%- assign placeholder_name = placeholder | default: 'hero-apparel-2' -%}
     {%- if placeholder_name == blank -%}
       {%- assign placeholder_name = 'hero-apparel-2' -%}
     {%- endif -%}
     {{ placeholder_name | placeholder_svg_tag }}
+    {% endcomment %}
   {%- endif -%}
 </div>

@@ -160,7 +160,7 @@
               "static": true,
               "settings": {
                 "label": "Send message",
-                "style_class": "button",
+                "style_class": "button-secondary",
                 "width": "fit-content",
                 "custom_width": 37,
                 "width_mobile": "custom",

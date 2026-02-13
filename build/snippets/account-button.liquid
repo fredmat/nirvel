@@ -12,10 +12,10 @@
   class="account-button header-actions__action"
   aria-label="{{ 'accessibility.account' | t }}"
   aria-haspopup="dialog"
-  {%- if popover_id -%}
+  {% if popover_id %}
     popovertarget="{{ popover_id }}"
     popovertargetaction="{{ popover_action | default: 'toggle' }}"
-  {%- endif -%}
+  {% endif %}
   ref="trigger"
   {{ attributes }}
 >
