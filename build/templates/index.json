@@ -222,6 +222,7 @@
             "product_title_mf3wqJ": {
               "type": "product-title",
               "name": "t:names.product_title",
+              "disabled": true,
               "settings": {
                 "width": "fit-content",
                 "max_width": "normal",
@@ -247,6 +248,7 @@
             "price_JBxtka": {
               "type": "price",
               "name": "t:names.product_price",
+              "disabled": true,
               "settings": {
                 "show_sale_price_first": true,
                 "show_installments": false,
@@ -281,15 +283,15 @@
       "name": "t:names.recently_viewed_products",
       "settings": {
         "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 5,
-        "columns": 5,
+        "carousel_on_mobile": true,
+        "max_products": 6,
+        "columns": 6,
         "tablet_columns": 3,
         "mobile_columns": "2",
-        "columns_gap": 12,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
+        "columns_gap": 8,
+        "rows_gap": 8,
+        "icons_style": "chevron",
+        "icons_shape": "circle",
         "section_width": "page-width",
         "gap": 28,
         "color_scheme": "scheme-1",
@@ -299,6 +301,7 @@
     },
     "divider_mfj9wd": {
       "type": "divider",
+      "disabled": true,
       "name": "t:names.divider_section",
       "settings": {
         "color_scheme": "",
@@ -941,6 +944,7 @@
         "group_Ka9nR3",
         "group_X3Vn8j"
       ],
+      "disabled": true,
       "name": "t:names.multicolumn",
       "settings": {
         "content_direction": "row",

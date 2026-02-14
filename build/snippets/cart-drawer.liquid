@@ -74,7 +74,11 @@
                   <div class="cart-drawer__collections">
                     <div class="cart-drawer__collections-headings">
                       {{ 'content.cart_drawer.where_to_start' | t }}<br />
-                      {{ 'content.cart_drawer.try_collections' | t }}
+                      {%- if settings.cart_drawer_collection_list.size > 1 -%}
+                        {{ 'content.cart_drawer.try_these_collections' | t }}
+                      {%- else -%}
+                        {{ 'content.cart_drawer.try_this_collection' | t }}
+                      {%- endif -%}
                     </div>
                     <ul class="list-unstyled cart-drawer__collection-list" role="list">
                       {% for collection in settings.cart_drawer_collection_list %}
@@ -106,13 +110,14 @@
                       {% endfor %}
                     </ul>
                   </div>
+                {% else %}
+                  <a
+                    class="button cart-drawer__empty-button"
+                    href="{{ settings.empty_cart_button_link | default: routes.all_products_collection_url }}"
+                  >
+                    {{ 'actions.continue_shopping' | t }}
+                  </a>
                 {% endif %}
-
-                {% comment %}
-                <div class="cart-drawer__items">
-                  {% render 'cart-products', context: 'drawer' %}
-                </div>
-                {% endcomment %}
               </div>
             </div>
           </scroll-hint>
