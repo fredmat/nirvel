@@ -180,6 +180,11 @@
     },
 
 
+    "cart_drawer": {
+      "your_cart_is_empty": "Your cart is currently empty.",
+      "where_to_start": "Not sure where to start?",
+      "try_collections": "Try these collections:"
+    },
 
 
 

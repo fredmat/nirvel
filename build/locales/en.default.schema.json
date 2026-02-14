@@ -248,6 +248,7 @@
     "cart_drawer": "Cart drawer",
     "collection_summary": "Collection summary",
     "collection_headline": "Collection headline",
+    "empty_cart": "Empty cart",
     "overlays": "Overlays",
     "product_badges": "Product badges",
     "product_meta": "Product meta",
@@ -259,6 +260,7 @@
 
     "free_shipping_bar": "Free shipping bar",
 
+    "recently_viewed": "Recently viewed",
     "recently_viewed_products": "Recently viewed products",
 
 
@@ -790,11 +792,13 @@
     "arrow_size": "Arrow size",
     "background_opacity": "Background opacity",
     "badge_style": "Badge style",
-    "custom_savings_text": "Custom savings text",
     "button_text": "Button text",
+    "cart_drawer_collection_list": "Collection list",
+    "cart_drawer_collection_list_show_image": "Show collection image",
     "cart_drawer_hide_remove_button": "Hide remove button",
     "cart_drawer_width": "Drawer width",
     "cursor": "Cursor",
+    "custom_savings_text": "Custom savings text",
     "enable_animation": "Enable animation",
     "enable_vendor_link": "Enable vendor link",
 
@@ -821,6 +825,7 @@
     "show_account_link": "Show account link",
     "show_cart_free_shipping_bar": "Show in cart",
     "show_cart_drawer_free_shipping_bar": "Show in cart drawer",
+    "show_clear_button": "Show clear button",
     "show_product_count": "Show product count",
     "show_rank_number": "Show rank number",
     "show_rank_number_until": "Show rank number until",

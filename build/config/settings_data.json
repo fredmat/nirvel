@@ -82,6 +82,13 @@
     "cart_drawer_auto_open": true,
     "cart_drawer_width": 30,
     "cart_drawer_border_radius": 24,
+    "cart_drawer_collection_list": [
+      "all",
+      "ceiling-lights",
+      "chandeliers",
+      "outdoor-lighting"
+    ],
+    "cart_drawer_collection_list_show_image": false,
     "enable_free_shipping_bar": true,
     "free_shipping_bar_minimum": 100000,
     "drawer_drop_shadow": true,

@@ -2132,6 +2132,22 @@
         "step": 1,
         "unit": "px",
         "default": 0
+      },
+      {
+        "type": "header",
+        "content": "t:names.empty_cart"
+      },
+      {
+        "type": "collection_list",
+        "id": "cart_drawer_collection_list",
+        "label": "t:settings.cart_drawer_collection_list",
+        "limit": 4
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_drawer_collection_list_show_image",
+        "label": "t:settings.cart_drawer_collection_list_show_image",
+        "default": false
       }
     ]
   },
@@ -2519,6 +2535,16 @@
           }
         ],
         "default": "default"
+      },
+      {
+        "type": "header",
+        "content": "t:names.recently_viewed"
+      },
+      {
+        "type": "checkbox",
+        "id": "recently_viewed_products_show_clear",
+        "label": "t:settings.show_clear_button",
+        "default": false
       }
     ]
   },
