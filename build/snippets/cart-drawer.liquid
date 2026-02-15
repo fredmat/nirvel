@@ -118,6 +118,10 @@
                     {{ 'actions.continue_shopping' | t }}
                   </a>
                 {% endif %}
+
+                <div class="cart-drawer__items">
+                  {% render 'cart-products', drawer_context: 'drawer' %}
+                </div>
               </div>
             </div>
           </scroll-hint>

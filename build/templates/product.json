@@ -220,8 +220,8 @@
                     "max_width": "none",
                     "alignment": "left",
                     "type_preset": "custom",
-                    "font": "var(--font-accent--family)",
-                    "font_size": "2rem",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "1.75rem",
                     "line_height": "tight",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -1411,7 +1411,7 @@
           "name": "t:names.product_card",
           "static": true,
           "settings": {
-            "product_card_gap": 8,
+            "product_card_gap": 6,
             "inherit_color_scheme": true,
             "color_scheme": "",
             "border": "none",
@@ -1443,7 +1443,6 @@
             "product_title_TwyEET": {
               "type": "product-title",
               "name": "t:names.product_title",
-              "disabled": true,
               "settings": {
                 "width": "fit-content",
                 "max_width": "normal",
@@ -1459,7 +1458,7 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 4,
+                "padding-block-start": 2,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -1469,7 +1468,6 @@
             "price_6XUrXY": {
               "type": "price",
               "name": "t:names.product_price",
-              "disabled": true,
               "settings": {
                 "show_sale_price_first": true,
                 "show_installments": false,
@@ -1556,7 +1554,7 @@
           "name": "t:names.product_card",
           "static": true,
           "settings": {
-            "product_card_gap": 4,
+            "product_card_gap": 6,
             "inherit_color_scheme": true,
             "color_scheme": "",
             "border": "none",
@@ -1588,7 +1586,6 @@
             "product_title_VCyMFh": {
               "type": "product-title",
               "name": "t:names.product_title",
-              "disabled": true,
               "settings": {
                 "width": "fit-content",
                 "max_width": "normal",
@@ -1604,7 +1601,7 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 4,
+                "padding-block-start": 2,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -1614,7 +1611,6 @@
             "price_rVNkVn": {
               "type": "price",
               "name": "t:names.product_price",
-              "disabled": true,
               "settings": {
                 "show_sale_price_first": true,
                 "show_installments": false,

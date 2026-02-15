@@ -18,7 +18,7 @@
           "settings": {
             "title": "Your cart",
             "show_count": false,
-            "type_preset": "h2",
+            "type_preset": "h1",
             "alignment": "left",
             "padding-block-start": 0,
             "padding-block-end": 18,

@@ -311,7 +311,7 @@
     "view_cart": "View cart",
     // Link or button to expand additional information
     "view_more_details": "View more details",
-    "your_cart_is_empty": "Your cart is empty",
+    "your_cart_is_empty": "Your cart is currently empty.",
     "product_count": "Product count",
     "errors": "Errors",
     "wrong_password": "Wrong password",

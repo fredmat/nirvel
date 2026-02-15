@@ -5,14 +5,29 @@
   style="{% render 'spacing-style', settings: block_settings %}"
   {{ block.shopify_attributes }}
 >
-  <h1 class="{{ block_settings.type_preset | default: 'h2' }}">
-    {%- if cart.empty? -%}
-      {{ 'content.your_cart_is_empty' | t }}
-    {%- else -%}
+  {% if cart.empty? %}
+    <h1 class="{{ block_settings.type_preset | default: 'h2' }}">
+      <span class="svg-wrapper">
+        {{- 'icon-sad.svg' | inline_asset_content -}}
+      </span>
+      <span>
+        {{ 'content.your_cart_is_empty' | t }}
+      </span>
+    </h1>
+    <div>
+      <a
+        class="button cart-items__empty-button"
+        href="{{ settings.empty_cart_button_link | default: routes.all_products_collection_url }}"
+      >
+        {{ 'actions.continue_shopping' | t }}
+      </a>
+    </div>
+  {% else %}
+    <h1 class="{{ block_settings.type_preset | default: 'h2' }}">
       {{ block_settings.title }}
       {%- if block_settings.show_count -%}{% render 'cart-bubble' %}{%- endif -%}
-    {%- endif -%}
-  </h1>
+    </h1>
+  {% endif %}
 </div>
 
 {% stylesheet %}
@@ -21,6 +36,27 @@
     display: inline-flex;
     align-items: center;
     gap: var(--gap-sm);
+  }
+
+  .cart-page--empty .cart-title h1 {
+    margin-block-end: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-2xl);
+
+    @media screen and (max-width: 749px) {
+      font-weight: var(--font-h2--weight);
+      font-size: var(--font-h2--size);
+      line-height: var(--font-h2--line-height);
+      letter-spacing: var(--font-h2--letter-spacing);
+    }
+  }
+
+  .cart-page--empty .cart-title .svg-wrapper,
+  .cart-page--empty .cart-title .svg-wrapper > svg {
+    flex-shrink: 0;
+    width: var(--icon-size-3xl);
+    height: var(--icon-size-3xl);
   }
 
   .cart-title .cart-bubble {

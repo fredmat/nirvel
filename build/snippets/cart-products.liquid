@@ -46,6 +46,7 @@
   "
 >
   {% if cart.empty? %}
+    {% comment %}
     {%- if shop.customer_accounts_enabled and customer == null -%}
       <p>
         {{ 'actions.log_in_html' | t: link: routes.account_login_url }}
@@ -58,6 +59,7 @@
     >
       {{ 'actions.continue_shopping' | t }}
     </a>
+    {% endcomment %}
   {%- else -%}
     <span
       class="visually-hidden"
@@ -590,7 +592,8 @@
   }
 
   .cart-items__empty-button {
-    margin-top: var(--margin-md);
+    margin-top: var(--margin-5xl);
+    margin-inline: auto;
     padding-inline: var(--padding-4xl);
     padding-block: var(--padding-lg);
   }
