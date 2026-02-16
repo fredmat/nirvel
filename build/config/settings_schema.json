@@ -2416,10 +2416,10 @@
         "id": "popover_border_radius",
         "label": "t:settings.border_radius",
         "min": 0,
-        "max": 16,
+        "max": 64,
         "step": 1,
         "unit": "px",
-        "default": 8
+        "default": 14
       },
       {
         "type": "select",
