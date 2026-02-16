@@ -111,7 +111,7 @@
     "quick_add_color_scheme": "scheme-1",
     "show_second_image_on_hover": true,
     "product_card_carousel": false,
-    "empty_state_collection": "",
+    "empty_state_collection": "ceiling-lights",
     "product_corner_radius": 6,
     "card_corner_radius": 4,
     "search_modal_show_second_image_on_hover": true,
@@ -132,6 +132,14 @@
     "cart_drawer_show_vendor": true,
     "cart_drawer_increase_width": false,
     "auto_open_cart_drawer": true,
+    "sections": {
+      "password-footer": {
+        "type": "password-footer",
+        "settings": {
+          "color_scheme": ""
+        }
+      }
+    },
     "content_for_index": [],
     "color_schemes": {
       "scheme-1": {

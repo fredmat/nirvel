@@ -11,7 +11,7 @@
     endif
   %}
   {% capture collection_title %}
-    <span class="collection-title">
+    <h2 class="collection-title">
       <span class="collection-title__title">
         {{ closest.collection.title }}
       </span>
@@ -20,7 +20,7 @@
           {{ closest.collection.products_count }}
         </small>
       {% endif %}
-    </span>
+    </h2>
   {% endcapture %}
   {% render 'text', fallback_text: collection_title, block: block %}
 {% endif %}
