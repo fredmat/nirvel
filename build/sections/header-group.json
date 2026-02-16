@@ -11,6 +11,37 @@
   "type": "header",
   "name": "t:names.header",
   "sections": {
+    "header_announcements_XNXprG": {
+      "type": "header-announcements",
+      "blocks": {
+        "announcement_CfV6wc": {
+          "type": "_announcement",
+          "name": "t:names.announcement",
+          "settings": {
+            "text": "Register & Enjoy 30% OFF on your first order",
+            "link": "",
+            "font": "var(--font-body--family)",
+            "font_size": "0.8125rem",
+            "weight": "",
+            "letter_spacing": "normal",
+            "case": "none"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "announcement_CfV6wc"
+      ],
+      "name": "t:names.announcement_bar",
+      "settings": {
+        "speed": 3,
+        "section_width": "page-width",
+        "color_scheme": "scheme-5",
+        "divider_width": 0,
+        "padding-block-start": 15,
+        "padding-block-end": 15
+      }
+    },
     "header_announcements_aPizE7": {
       "type": "header-announcements",
       "blocks": {
@@ -18,25 +49,41 @@
           "type": "_announcement",
           "name": "t:names.announcement",
           "settings": {
-            "text": "Register & Enjoy 30% OFF on your first order",
+            "text": "Modern lighting designed to elevate your everyday spaces.",
+            "link": "",
+            "font": "var(--font-body--family)",
+            "font_size": "0.8125rem",
+            "weight": "",
+            "letter_spacing": "tight",
+            "case": "none"
+          },
+          "blocks": {}
+        },
+        "announcement_ai98zW": {
+          "type": "_announcement",
+          "name": "t:names.announcement",
+          "settings": {
+            "text": "The Pros and Cons of LED Lighting for Your Home !",
             "link": "",
             "font": "var(--font-subheading--family)",
             "font_size": "0.8125rem",
             "weight": "",
             "letter_spacing": "tight",
-            "case": "uppercase"
+            "case": "none"
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "announcement_Rawmg4"
+        "announcement_Rawmg4",
+        "announcement_ai98zW"
       ],
+      "disabled": true,
       "name": "t:names.announcement_bar",
       "settings": {
         "speed": 3,
         "section_width": "page-width",
-        "color_scheme": "scheme-5",
+        "color_scheme": "scheme-8",
         "divider_width": 0,
         "padding-block-start": 15,
         "padding-block-end": 15
@@ -114,6 +161,7 @@
     }
   },
   "order": [
+    "header_announcements_XNXprG",
     "header_announcements_aPizE7",
     "header_section"
   ]

@@ -110,7 +110,7 @@
               "settings": {
                 "show_arrow": true,
                 "animate_arrow": true,
-                "arrow_size": 26,
+                "arrow_size": 24,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
                 "horizontal_alignment": "flex-start",
@@ -241,7 +241,7 @@
       "settings": {
         "layout_type": "grid",
         "carousel_on_mobile": false,
-        "columns": 3,
+        "columns": 4,
         "tablet_columns": 2,
         "mobile_columns": "2",
         "columns_gap": 8,

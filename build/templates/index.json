@@ -23,9 +23,9 @@
             "horizontal_alignment_flex_direction_column": "center",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 12,
-            "width": "custom",
+            "width": "fit-content",
             "custom_width": 50,
-            "width_mobile": "custom",
+            "width_mobile": "fit-content",
             "custom_width_mobile": 85,
             "height": "fit",
             "custom_height": 100,
@@ -45,8 +45,8 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "",
-            "padding-block-start": 48,
-            "padding-block-end": 48,
+            "padding-block-start": 64,
+            "padding-block-end": 64,
             "padding-inline-start": 48,
             "padding-inline-end": 48
           },
@@ -79,7 +79,7 @@
             "text_z87D6V": {
               "type": "text",
               "settings": {
-                "text": "<p>Modern lighting designed to elevate your everyday spaces.</p>",
+                "text": "<p>Modern lighting designed to elevate your everyday spaces</p>",
                 "width": "fit-content",
                 "max_width": "narrow",
                 "alignment": "left",
@@ -103,8 +103,9 @@
             },
             "button_bDp9az": {
               "type": "button",
+              "disabled": true,
               "settings": {
-                "label": "Explore Best Sellers",
+                "label": "Explore",
                 "link": "shopify://collections/all",
                 "open_in_new_tab": false,
                 "style_class": "button-secondary",
@@ -147,13 +148,13 @@
         "section_height_custom": 50,
         "color_scheme": "scheme-6",
         "toggle_overlay": true,
-        "overlay_color": "#0000005e",
+        "overlay_color": "#00000080",
         "overlay_style": "gradient",
         "gradient_direction": "to bottom",
         "blurred_reflection": false,
         "reflection_opacity": 75,
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "recently_viewed_products_fitUCE": {
