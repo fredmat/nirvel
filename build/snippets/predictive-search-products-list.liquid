@@ -30,7 +30,16 @@
         {{ title }}
         {% if settings.recently_viewed_products_show_clear %}
           <button
-            class="predictive-search-results__clear button button-unstyled"
+            class="
+              predictive-search-results__clear
+              button
+              {% if settings.recently_viewed_products_clear_style_class == 'link' %}
+                button-unstyled
+              {% else %}
+                button--sm
+                {{ settings.recently_viewed_products_clear_style_class }}
+              {% endif %}
+            "
             type="button"
             on:click="/clearRecentlyViewedProducts"
           >
@@ -145,7 +154,7 @@
     opacity: 0.68;
     transition: opacity var(--animation-speed-medium) var(--animation-easing);
     padding: 0;
-    margin-left: var(--margin-sm);
+    margin-left: var(--margin-md);
 
     &:hover {
       opacity: 1;

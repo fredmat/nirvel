@@ -1,4 +1,7 @@
-{% assign block_settings = block.settings %}
+{%liquid
+  assign block_settings = block.settings
+  assign empty_cart_button_text = settings.empty_cart_button_text
+%}
 
 <div
   class="cart-title spacing-style text-{{ block_settings.alignment }}"
@@ -19,7 +22,11 @@
         class="button cart-items__empty-button"
         href="{{ settings.empty_cart_button_link | default: routes.all_products_collection_url }}"
       >
-        {{ 'actions.continue_shopping' | t }}
+        {% if empty_cart_button_text != '' %}
+          {{ empty_cart_button_text }}
+        {% else %}
+          {{ 'actions.continue_shopping' | t }}
+        {% endif %}
       </a>
     </div>
   {% else %}
@@ -45,10 +52,10 @@
     gap: var(--gap-2xl);
 
     @media screen and (max-width: 749px) {
-      font-weight: var(--font-h2--weight);
-      font-size: var(--font-h2--size);
-      line-height: var(--font-h2--line-height);
-      letter-spacing: var(--font-h2--letter-spacing);
+      /*font-weight: var(--font-h2--weight);*/
+      /*font-size: var(--font-h2--size);*/
+      /*line-height: var(--font-h2--line-height);*/
+      /*letter-spacing: var(--font-h2--letter-spacing);*/
     }
   }
 

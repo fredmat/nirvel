@@ -1917,7 +1917,6 @@
         ],
         "default": "body"
       },
-
       {
         "type": "select",
         "id": "button_text_case_secondary",
@@ -2095,12 +2094,16 @@
         "info": "t:info.checkout_buttons",
         "default": true
       },
-
       {
         "type": "url",
         "id": "empty_cart_button_link",
         "label": "t:settings.empty_cart_button_link",
         "default": "/collections/all"
+      },
+      {
+        "type": "text",
+        "id": "empty_cart_button_text",
+        "label": "t:settings.empty_cart_button_text"
       },
       {
         "type": "header",
@@ -2617,6 +2620,27 @@
         "id": "recently_viewed_products_show_clear",
         "label": "t:settings.show_clear_button",
         "default": false
+      },
+      {
+        "type": "select",
+        "id": "recently_viewed_products_clear_style_class",
+        "label": "t:settings.style",
+        "options": [
+          {
+            "value": "button",
+            "label": "t:options.primary"
+          },
+          {
+            "value": "button-secondary",
+            "label": "t:options.secondary"
+          },
+          {
+            "value": "link",
+            "label": "t:options.link"
+          }
+        ],
+        "default": "link",
+        "visible_if": "{{ settings.recently_viewed_products_show_clear }}"
       }
     ]
   },

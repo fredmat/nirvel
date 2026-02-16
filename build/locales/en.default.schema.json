@@ -952,6 +952,7 @@
     "dividers": "Dividers",
     "drop_shadow": "Drop shadow",
     "empty_cart_button_link": "Empty cart button link",
+    "empty_cart_button_text": "Empty cart button text",
     // Collection setting for products shown before search input
     "empty_state_collection": "Empty state collection",
     "empty_state_collection_info": "Shown before a search is entered",
